@@ -14,7 +14,7 @@ from data import (BUDGETS, FILES, FY_SPEND_BY_MONTH, INBOX, JOB, PEOPLE, PROJECT
 from procurement import DELIVERIES
 from kit import (AMBER_D, BLUE, BRAND, BRAND_D, BRAND_M, CARD, FAINT, FIELD_BG, INK, INK2, KOICA, LIME, LIME_D, LINE,
                  LINE2, MUTED, ORANGE, RED, TEAL, VIOLET, ref, status_chip, tint, tw)
-from shell import (CW, X0, Y0, c_chip, c_money, c_person, c_ref, c_status, c_text, c_two, console, data_table, decision_panel, list_card,
+from shell import (approval_panel, CW, X0, Y0, c_chip, c_money, c_person, c_ref, c_status, c_text, c_two, console, data_table, decision_panel, list_card,
                    note, page_head, record_header, stat_card, tabs)
 
 def _m(n):
@@ -155,7 +155,7 @@ def _personal_rows(s, person, y):
         title, sub = "My evaluations", "the committees you are appointed to, and where each one is"
         evals = [("PR-2026-0090", "Washroom block, Busalamu P/S", "Chair", "To score", "Due tomorrow", "w13b"),
                  ("PR-2026-0089", "Printing teacher training manuals", "Member", "Scored", "Award with the Executive Approver",
-                  None),
+                  "w13e"),
                  ("PR-2026-0087", "10 laptops for training room 2", "Chair", "Scored", "Awarded to Busoga Tech", "w13d"),
                  ("PR-2026-0079", "Office chairs, Jinja head office", "Member", "Scored", "Awarded to Iganga Office Furnishers",
                   None)]
@@ -178,7 +178,7 @@ def _personal_rows(s, person, y):
         mine = [f for f in FILES if f[5] == person]
         title = "My requisitions"
         sub = f"{len(mine)} this year · each one is a procurement file you can follow to the end"
-        targets = {"PR-2026-0087": "w11", "PR-2026-0098": "w10b"}
+        targets = {"PR-2026-0087": "w11", "PR-2026-0098": "w10b", "PR-2026-0096": "w10d"}
         rows, links = [], []
         for no, ttl, proj, office, acc, req, val, stage, st, waiting, since, method in mine:
             rows.append([c_ref(no, ttl), c_text(PROJECT[proj][1], INK2), c_money(val),
@@ -255,14 +255,18 @@ def w02_my_approvals():
 
 
 def _requisition_decision(key, title, viewer, no, item_title, items, project_line, line, maker, steps, comment,
-                          track_since, budget, back, placeholder=False):
-    s = console(title, "My approvals", ["My approvals", no], viewer, owner=True)
-    name = PEOPLE[viewer][0]
+                          track_since, budget, back, placeholder=False, active="My approvals", crumbs=None, decide=True,
+                          approver=None, waiting=None):
+    """A requisition waiting on an approver, as a full record page. decide=True: the approver's own copy (from My
+    approvals, or from Requisitions) with Approve / Return / Reject. decide=False: the same page for everyone else who
+    opens it from Requisitions, read only, with who it waits on."""
+    s = console(title, active, crumbs or ["My approvals", no], viewer, owner=decide)
+    name = PEOPLE[approver or viewer][0] + (" (you)" if decide else "")
     y = record_header(s, Y0, no, item_title,
                       chips=[("Awaiting approval", None, "status"), (project_line[0], project_line[1], "chip")],
                       facts=[("Requested by", f"{PEOPLE[maker][0]} · {project_line[2]}"), ("Line", line),
                              ("Method", project_line[3])],
-                      track=lambda s_, x, y_, w: file_track(s_, x, y_, w, "Requested", waiting=f"{name} (you)",
+                      track=lambda s_, x, y_, w: file_track(s_, x, y_, w, "Requested", waiting=name,
                                                             since=track_since))
     y += 20
     lw = 1090
@@ -289,24 +293,50 @@ def _requisition_decision(key, title, viewer, no, item_title, items, project_lin
     s.text(X0 + 490, y2 + 126, "Funds are reserved when the last step approves", 13.5, 700, INK)
     s.para(X0 + 490, y2 + 152, "Until then this request reserves nothing, so other requisitions on the line see the "
            "available balance above. On approval it is reserved; the LPO later commits it.", lw - 534, 13, 400, INK2, lh=20)
-    decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer=viewer, maker=maker, what="requisition", comment=comment,
-                   steps=steps, back=back, h=620, placeholder=placeholder)
+    if decide:
+        decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer=viewer, maker=maker, what="requisition", comment=comment,
+                       steps=steps, back=back, h=620, placeholder=placeholder)
+    else:
+        approval_panel(s, X0 + lw + 20, y, CW - lw - 20, 620, steps, waiting)
     return s
 
 
-def w02b_approve_requisition():
+def _solar(title, **kw):
+    """PR-2026-0096, Grace's solar backup system, waiting on the Executive Approver (step 3 of 3)."""
     items = [("Solar backup system, installed", "10 kVA hybrid inverter · 20 kWh lithium batteries · 3-year service",
               "1 Lot", 34_500_000, 34_500_000,
               "Power cuts stop training 2–3 days a week; the hub's diesel generator costs UGX 1.1M a month in fuel.")]
     return _requisition_decision(
-        "w02b", "02b Approve requisition PR-2026-0096 (Country Director)", "samuel", "PR-2026-0096", "Solar backup system",
+        None, title, kw.pop("viewer", "samuel"), "PR-2026-0096", "Solar backup system",
         items, ("KOICA", KOICA, "Fri 9 Oct", "RFQ + committee (above UGX 30M)"), "5230 Solar & electrical · Kasese ICT Hub",
         "grace",
         [("Department review", "Daniel Okello · approved Sat 10 Oct", "done"),
          ("Funds check", "Ruth Nakato · approved Sun 11 Oct", "done"),
          ("Executive approval", "Samuel Kato · above UGX 30M", "now")],
         "Approved. Run the RFQ with an evaluation committee; include a service contract.", "1 day",
-        (48_000_000, 6_200_000, 41_800_000, 34_500_000), "w02")
+        (48_000_000, 6_200_000, 41_800_000, 34_500_000), kw.pop("back", "w02"), approver="samuel",
+        waiting=("Samuel Kato", "Executive Approver · step 3 of 3 · since Sun 11 Oct · he decides from My approvals "
+                 "or from here"), **kw)
+
+
+REQ_CRUMBS = lambda no: ["Procurement", "Requisitions", no]   # noqa: E731
+
+
+def w02b_approve_requisition():
+    return _solar("02b Approve requisition PR-2026-0096 (Executive Approver)")
+
+
+def w10d_solar():
+    return _solar("10d Requisition PR-2026-0096: Solar backup system", viewer="ivan", decide=False,
+                  active="Requisitions", crumbs=REQ_CRUMBS("PR-2026-0096"))
+
+
+def w10d_samuel():
+    return _solar("10d Requisition PR-2026-0096: Solar backup system (your decision)", active="Requisitions",
+                  crumbs=REQ_CRUMBS("PR-2026-0096"), back="w10")
+
+
+w10d_samuel.key = "w10d-samuel"
 
 
 def w03_hod_approvals():
@@ -335,23 +365,43 @@ def w03_hod_approvals():
     cols = [("Type", 200, "start"), ("What", 560, "start"), ("Value (UGX)", 180, "end"), ("Decision", 260, "start"),
             ("When", 312, "start")]
     list_card(s, y, 44 + 60 * len(rows) + 4)
-    data_table(s, X0, y, cols, rows, links=[None, None, None, None, "w11b"], row_h=60)
+    data_table(s, X0, y, cols, rows, links=["w10d", None, None, None, "w11b"], row_h=60)
     return s
 
 
-def w03b_hod_decision():
+def _hygiene(title, **kw):
+    """PR-2026-0095, Harriet's hygiene kits, waiting on the Department Head (step 1 of 2)."""
     items = [("Household hygiene kits", "Soap, jerrycan, basin, sanitary pads, nail clipper · packed per household",
               "120 Kits", 30_000, 3_600_000,
               "For the November household visits in Kumi: one kit per model home enrolled this quarter.")]
     return _requisition_decision(
-        "w03b", "03b Approve requisition PR-2026-0095 (Department Head)", "daniel", "PR-2026-0095",
+        None, title, kw.pop("viewer", "daniel"), "PR-2026-0095",
         "Hygiene kits for model homes", items, ("KFHI", BRAND_M, "Today 05:40", "Direct purchase (up to UGX 5M)"),
         "5610 Health supplies · Model Home Health, Kumi", "harriet",
         [("Department review", "Daniel Okello · Department Head", "now"),
          ("Funds check", "Ruth Nakato · Finance Officer", "next"),
          ("Executive approval", "Only above UGX 30M · not needed", "skipped")],
         "Write a comment (required to return or reject)", "4 hours", (26_000_000, 15_400_000, 10_600_000, 3_600_000),
-        "w03", placeholder=True)
+        kw.pop("back", "w03"), placeholder=True, approver="daniel",
+        waiting=("Daniel Okello", "Department Head · step 1 of 2 · since 05:40 today · he decides from My approvals "
+                 "or from here"), **kw)
+
+
+def w03b_hod_decision():
+    return _hygiene("03b Approve requisition PR-2026-0095 (Department Head)")
+
+
+def w10e_hygiene():
+    return _hygiene("10e Requisition PR-2026-0095: Hygiene kits for model homes", viewer="ivan", decide=False,
+                    active="Requisitions", crumbs=REQ_CRUMBS("PR-2026-0095"))
+
+
+def w10e_daniel():
+    return _hygiene("10e Requisition PR-2026-0095: Hygiene kits for model homes (your decision)", active="Requisitions",
+                    crumbs=REQ_CRUMBS("PR-2026-0095"), back="w10")
+
+
+w10e_daniel.key = "w10e-daniel"
 
 
 # Ruth's and Ivan's My approvals: nothing waiting today, which is a state worth showing (PLAN.md §5)
@@ -396,4 +446,4 @@ OWN_INBOXES = [_person_screen("w02-ruth", _own_inbox, "ruth"), _person_screen("w
 
 
 SCREENS = [*DASHBOARDS, w02_my_approvals, w02b_approve_requisition, *OWN_INBOXES, w03_hod_approvals,
-           w03b_hod_decision]
+           w03b_hod_decision, w10d_solar, w10d_samuel, w10e_hygiene, w10e_daniel]

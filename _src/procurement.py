@@ -12,7 +12,7 @@ from data import (DESKS, FILES, LAPTOPS, PEOPLE, PROJECT, STATIONERY, WASHROOM)
 from kit import (AMBER_D, BRAND, BRAND_D, BRAND_M, CARD, FAINT, FIELD_BG, INK, INK2, KOICA, LIME, LIME_D, LINE,
                  LINE2, MUTED, ORANGE, RED, TEAL, VIOLET, avatar, button, checkbox, chip, field, radio, ref, status_chip,
                  textarea, tint, tw)
-from shell import (writes, decision_panel, CW, X0, X1, Y0, c_chip, c_money, c_person, c_ref, c_status, c_text, c_two, console, data_table,
+from shell import (approval_panel, writes, decision_panel, CW, X0, X1, Y0, c_chip, c_money, c_person, c_ref, c_status, c_text, c_two, console, data_table,
                    list_card, note, page_head, pager, record_header, tabs, toolbar)
 
 L = LAPTOPS
@@ -323,7 +323,8 @@ def w10_requisitions():
                               ("In progress", 17), ("Closed", 74)], "All")
     toolbar(s, X0, y + 50, CW, "Search by number, title or supplier…", filters=["FY 2026"])
     rows, links = [], []
-    targets = {"PR-2026-0087": "w11", "PR-2026-0098": "w10b", "PR-2026-0091": "w12b"}
+    targets = {"PR-2026-0087": "w11", "PR-2026-0098": "w10b", "PR-2026-0091": "w12b", "PR-2026-0096": "w10d",
+               "PR-2026-0095": "w10e"}
     for no, title, proj, office, acc, req, val, stage, st, waiting, since, method in files:
         rows.append([c_ref(no, title), c_two(PROJECT[proj][1], f"{acc} · {office}", bold=False), c_person(req, False),
                      c_money(val), _stage_cell(stage, st), _waiting_cell(waiting, since, st)])
@@ -421,7 +422,7 @@ RFQS = [
     ("RFQ-2026-0036", "PR-2026-0091 · Desks and chairs", "Furniture", "—", "Not sent", "Draft", "Joseph preparing", "w12b"),
     ("RFQ-2026-0035", "PR-2026-0093 · Network switches and cabling", "ICT", "2 of 4", "Wed 14 Oct, 12:00", "Open", "Closes in 2 days", None),
     ("RFQ-2026-0033", "PR-2026-0090 · Washroom block, Busalamu P/S", "Construction & works", "3 of 3", "Closed 5 Oct", "Evaluation", "Committee scoring", None),
-    ("RFQ-2026-0032", "PR-2026-0089 · Printing teacher training manuals", "Printing & stationery", "3 of 3", "Closed 2 Oct", "Award", "Award with the Country Director", None),
+    ("RFQ-2026-0032", "PR-2026-0089 · Printing teacher training manuals", "Printing & stationery", "3 of 3", "Closed 2 Oct", "Award", "Award with the Executive Approver", "w13e"),
     ("RFQ-2026-0031", "PR-2026-0087 · 10 laptops for training room 2", "ICT", "3 of 4", "Closed 28 Sep", "Closed", "Busoga Tech Supplies · 36,400,000", "w12c"),
     ("RFQ-2026-0029", "PR-2026-0084 · Stationery for vocational classes", "Printing & stationery", "3 of 3", "Closed 25 Sep", "LPO issued", "Main Street Stationers · 6,620,000", None),
     ("RFQ-2026-0027", "PR-2026-0079 · Office chairs, Jinja head office", "Furniture", "3 of 3", "Closed 14 Sep", "Closed", "Iganga Office Furnishers · 7,300,000", None),
@@ -590,7 +591,7 @@ def w13_evaluations():
             ("Status", 180, "start"), ("Report due", 292, "start")]
     list_card(s, y, 78 + 44 + 66 * len(rows) + 58)
     toolbar(s, X0, y, CW, "Search evaluations…", filters=["FY 2026"], export=False)
-    end = data_table(s, X0, y + 78, cols, rows, links=[None, None, "w13d", None], row_h=66, hl=2)
+    end = data_table(s, X0, y + 78, cols, rows, links=[None, "w13e", "w13d", None], row_h=66, hl=2)
     pager(s, X0, end, CW, (1, 4), 9, pages=3, per=4)
     note(s, X0, end + 76, CW, "Scores stay hidden from everyone, members included, until all members have submitted.",
          icon="eye")
@@ -617,7 +618,7 @@ def w13_mine():
             ("Committee", 240, "start"), ("Due", 322, "start")]
     list_card(s, y, 78 + 44 + 66 * len(rows) + 58)
     toolbar(s, X0, y, CW, "Search evaluations…", export=False)
-    end = data_table(s, X0, y + 78, cols, rows, links=["w13b", None, "w13d", None], row_h=66, hl=0)
+    end = data_table(s, X0, y + 78, cols, rows, links=["w13b", "w13e", "w13d", None], row_h=66, hl=0)
     pager(s, X0, end, CW, (1, 4), 4, pages=1)
     return s
 
@@ -702,13 +703,16 @@ def w13b_scoring():
     return s
 
 
-def w13c_award():
-    s = console("13c Approve award PR-2026-0089", "My approvals", ["My approvals", "PR-2026-0089 · award"], "samuel", owner=True)
+def _award_page(title, active, crumbs, viewer="ivan", decide=False, back="w02"):
+    """The printing award PR-2026-0089 as a full record page. The Executive Approver decides on his own copy, from My
+    approvals or from Evaluations; the committee, Procurement, Finance and the auditor see it read only."""
+    s = console(title, active, crumbs, viewer, owner=decide)
     y = record_header(s, Y0, "PR-2026-0089", "Printing teacher training manuals",
                       chips=[("Award", None, "status"), ("Printing & stationery", TEAL, "chip")],
                       facts=[("Project", "Teacher ICT Initiative, Kamuli"), ("Line", "5120 Printing · reserved 31,200,000"),
                              ("Recommended by", "Joseph Waiswa · Sat 10 Oct")],
-                      track=lambda s_, x, y_, w: file_track(s_, x, y_, w, "Award", waiting="Samuel Kato (you)",
+                      track=lambda s_, x, y_, w: file_track(s_, x, y_, w, "Award",
+                                                            waiting="Samuel Kato" + (" (you)" if decide else ""),
                                                             since="2 days"))
     y += 20
     lw = 1090
@@ -734,11 +738,39 @@ def w13c_award():
                                        ("Released back to the line on approval", "1,450,000", BRAND_M)]):
         s.text(X0 + 24, yy + i * 30, lab, 13.5, 500, INK2)
         s.text(X0 + lw - 24, yy + i * 30, v, 14, 700, col, anchor="end")
-    decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer="samuel", maker="joseph", what="award recommendation",
-                    comment="Approved. Jinja Print & Pack's sample was the only one that passed.",
-                    steps=[("Award approval", "Samuel Kato · Country Director", "now")], back="w02", approve="Approve award",
-                    h=560)
+    if decide:
+        decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer="samuel", maker="joseph", what="award recommendation",
+                       comment="Approved. Jinja Print & Pack's sample was the only one that passed.",
+                       steps=[("Award approval", "Samuel Kato · Country Director", "now")], back=back,
+                       approve="Approve award", h=560)
+    else:
+        approval_panel(s, X0 + lw + 20, y, CW - lw - 20, 560, [
+            ("Committee evaluation", "Moses Tumusiime (chair), Esther Namutebi, Brian Ouma · report Thu 1 Oct", "done"),
+            ("Award recommendation", "Joseph Waiswa · Procurement Officer · Sat 10 Oct", "done"),
+            ("Award approval", "Samuel Kato · Executive Approver · waiting 2 days", "now"),
+            ("LPO", "Prepared by Procurement once approved", "next")],
+            ("Samuel Kato", "Executive Approver · since Sat 10 Oct · he decides from My approvals or from here"))
     return s
+
+
+def w13c_award():
+    return _award_page("13c Approve award PR-2026-0089", "My approvals", ["My approvals", "PR-2026-0089 · award"],
+                       "samuel", decide=True, back="w02")
+
+
+AWARD_CRUMBS = ["Procurement", "Evaluations", "PR-2026-0089 · award"]
+
+
+def w13e_award():
+    return _award_page("13e Award PR-2026-0089: Printing teacher training manuals", "Evaluations", AWARD_CRUMBS)
+
+
+def w13e_samuel():
+    return _award_page("13e Award PR-2026-0089: Printing teacher training manuals (your decision)", "Evaluations",
+                       AWARD_CRUMBS, "samuel", decide=True, back="w13")
+
+
+w13e_samuel.key = "w13e-samuel"
 
 
 def w13d_file_evaluation():
@@ -1086,5 +1118,5 @@ def w15d_delivery():
 
 
 SCREENS = [w13_mine, w10_requisitions, w10b_new_requisition, w10c_new_requisition, w11_file, w11b_approvals, w11c_documents, w12_rfqs, w12b_new_rfq,
-           w12c_comparison, w13_evaluations, w13b_scoring, w13c_award, w13d_file_evaluation, w14_lpos, w14b_lpo,
+           w12c_comparison, w13_evaluations, w13b_scoring, w13c_award, w13e_award, w13e_samuel, w13d_file_evaluation, w14_lpos, w14b_lpo,
            w15_deliveries, w15b_grn, w15c_payment, w15d_delivery]

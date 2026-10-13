@@ -161,7 +161,7 @@ YOUR_TURN = {
              ("sheet", "Fix an import", "BUD-2027-001", "Kasese ICT Hub FY 2027 · 3 rows to fix", "w30d"),
              ("swap", "Revision with the Country Director", "BR-2026-0007", "Kamuli · waiting 3 days", "w31")],
     "grace": [("edit", "Finish your requisition", "PR-2026-0098", "Projector and screen · draft saved 09:31", "w10b"),
-              ("clock", "With the Country Director", "PR-2026-0096", "Solar backup system · step 3 of 3", "w10"),
+              ("clock", "With the Executive Approver", "PR-2026-0096", "Solar backup system · step 3 of 3", "w10d"),
               ("check", "Delivered and paid", "PR-2026-0087", "10 laptops · file closed today", "w11")],
     "esther": [("scale", "Score an evaluation", "PR-2026-0090", "Washroom block · due tomorrow · you chair", "w13b"),
                ("clock", "With the Executive Approver", "PR-2026-0089", "Printing manuals · your committee's recommendation",
