@@ -3,7 +3,8 @@
 The design record for the clickable mockup: what the system is, who uses it, how records move, and every
 screen with where it links. **Read this before adding or changing a screen.** The README explains how
 screens are generated; this file explains what they must say. [`PATTERNS.md`](PATTERNS.md) holds the reusable
-rules (front door, roles and sessions, page vs dialog, approvals in place).
+rules (front door, roles and sessions, page vs dialog, approvals in place); [`BRIEFING.md`](BRIEFING.md) is the
+team's presenting guide.
 
 - **Client:** International Development Institute Uganda (IDIU), Plot 45 Wilson Avenue, Jinja (idiu.org).
   A Christian non-profit linked to Korea Food for the Hungry International (KFHI); KOICA is a donor. Projects

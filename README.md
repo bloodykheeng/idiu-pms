@@ -6,6 +6,8 @@ from budgets and supplier prequalification through requisitions, RFQs, evaluatio
 close-out.
 
 - **Live mockup:** https://idiu-pms.vercel.app (Vercel redeploys on every push to `main`)
+- **Presenting it:** [`BRIEFING.md`](BRIEFING.md): the team briefing (what IDIU asked for and where it is, roles,
+  a linked 12-minute walkthrough, likely questions, watch-outs). Public: share it with colleagues.
 - **What it shows and why:** [`PLAN.md`](PLAN.md): decisions, roles, the story, every screen and its links
 - **How a system is linked, and which pattern goes where:** [`PATTERNS.md`](PATTERNS.md): the front door, roles and
   sessions, dashboards, page vs dialog vs drawer, approvals in place, buttons and highlights. Read it before adding a screen.
@@ -49,6 +51,7 @@ laptop or phone (a few KB per screen). The same font files measure text, so alig
 | `chrome/`, `chrome-dark/` | **Generated** sidebar + identity for each person and each menu entry they can open (108); the viewer lays them over shared screens |
 | `all-screens.svg` | **Generated** by `combine.py` |
 | `PLAN.md` | The design record: decisions, roles, master data, approvals, story, screen map |
+| `BRIEFING.md` | The team briefing for presenting to IDIU, with direct links to every screen it mentions (public; no prices) |
 | `PATTERNS.md` | The reusable rules: front door, roles and sessions, dashboards, page vs dialog, approvals, buttons |
 | `favicon.svg`, `favicon.png`, `apple-touch-icon.png`, `og-image.jpg` | Tab icons and the link preview (made by `_src/make_assets.py`) |
 | `_src/kit.py` | Drawing kit: SVG builder, text measuring, palette, icons, components (chip, button, field, table…) |
@@ -219,7 +222,7 @@ else, Plex Mono for reference numbers. Signature: the **file track**; supporting
   `smoke.py` (`pip install playwright && playwright install chromium`).
 - PNG previews use headless Chrome at `C:\Program Files\Google\Chrome\Application\chrome.exe`.
 - **Vercel:** framework "Other", no build command, output directory = repo root. Generated files are
-  committed; Vercel never runs Python. `.vercelignore` keeps `_src`, `.claude`, `_previews` and the docs private.
+  committed; Vercel never runs Python. `.vercelignore` keeps `_src`, `.claude`, `_previews`, PLAN, README and PATTERNS off the deploy; BRIEFING.md is deployed (it is meant to be shared).
 
 ## 10. Adobe XD
 
