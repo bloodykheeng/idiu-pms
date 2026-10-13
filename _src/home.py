@@ -1,7 +1,7 @@
 """The dashboard and the approvers' inboxes (w01–w03b). Sign in (w00) is in public.py, the front door.
 
 w01-<person>  each person's own dashboard: what is waiting on them, figures from what their role can open
-w02  my approvals (Samuel, Country Director) → w02b approve requisition PR-2026-0096
+w02  my approvals (Samuel, Executive Approver) → w02b approve requisition PR-2026-0096
 w02-ruth, w02-ivan  my approvals with nothing waiting
 w03  my approvals (Daniel, Department Head) → w03b approve requisition PR-2026-0095 (step 1 of 2)
 """
@@ -227,7 +227,7 @@ TYPE_COLOUR = {"Requisition": BLUE, "Award": VIOLET, "Budget revision": TEAL, "P
 
 
 def w02_my_approvals():
-    s = console("02 My approvals (Country Director)", "My approvals", ["My approvals"], "samuel", owner=True)
+    s = console("02 My approvals (Executive Approver)", "My approvals", ["My approvals"], "samuel", owner=True)
     y = page_head(s, "My approvals", "Waiting on you: 4. Each was prepared by someone else; your comment goes on the record.")
     rows, links = [], []
     for typ, code, what, val, step, by, since, tgt in INBOX:
@@ -414,7 +414,7 @@ OWN_DECIDED = {
 }
 EMPTY_NOTE = {
     "ruth": "Funds checks come to you after the Department Head; LPO commitment checks after Procurement prepares one.",
-    "ivan": "Changes you submit to approval workflows go to the Country Director; you can't approve your own.",
+    "ivan": "Changes you submit to approval workflows go to the Executive Approver; you can't approve your own.",
 }
 
 

@@ -159,7 +159,7 @@ YOUR_TURN = {
                ("gauge", "Programmes budgets", "FY 2026", "4 projects · 61% used with 12 weeks to go", "w41")],
     "ruth": [("edit", "Finish a draft budget", "BUD-2027-002", "Model Home Health · 1 line left to add", "w30c"),
              ("sheet", "Fix an import", "BUD-2027-001", "Kasese ICT Hub FY 2027 · 3 rows to fix", "w30d"),
-             ("swap", "Revision with the Country Director", "BR-2026-0007", "Kamuli · waiting 3 days", "w31")],
+             ("swap", "Revision with the Executive Approver", "BR-2026-0007", "Kamuli · waiting 3 days", "w31")],
     "grace": [("edit", "Finish your requisition", "PR-2026-0098", "Projector and screen · draft saved 09:31", "w10b"),
               ("clock", "With the Executive Approver", "PR-2026-0096", "Solar backup system · step 3 of 3", "w10d"),
               ("check", "Delivered and paid", "PR-2026-0087", "10 laptops · file closed today", "w11")],
@@ -344,7 +344,7 @@ KASESE_2027_IMPORT = [
     (10, "5220", "Accessible desks, training room 3", "KSN", 26_000_000, "Cost centre KSN doesn't exist (did you mean KSE?)"),
 ]
 
-# Budget revision awaiting the Country Director (w31b)
+# Budget revision awaiting the Executive Approver (w31b)
 REVISION = {
     "no": "BR-2026-0007",
     "budget": "BUD-2026-002",
@@ -453,7 +453,7 @@ DESKS = {"no": "PR-2026-0091", "rfq": "RFQ-2026-0036", "items": [
 WASHROOM = {"no": "PR-2026-0090", "rfq": "RFQ-2026-0033", "bids": [
     ("Kakira Builders Ltd", 82_600_000), ("Mutai Engineering Ltd", 79_900_000), ("Lake Basin Contractors", 88_400_000)]}
 
-# Printing award (w13c): PR-2026-0089, awaiting the Country Director
+# Printing award (w13c): PR-2026-0089, awaiting the Executive Approver
 PRINTING = {"no": "PR-2026-0089", "rfq": "RFQ-2026-0032", "bids": [
     ("Jinja Print & Pack Ltd", 29_750_000, 91.0), ("Busoga Printers Ltd", 28_900_000, 86.5),
     ("Source Line Graphics", 32_400_000, 80.2)]}

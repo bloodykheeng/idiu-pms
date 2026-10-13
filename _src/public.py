@@ -22,7 +22,7 @@ STAFF_SIGN_IN = [("ivan", "System Administrator", "Sets up lists and users"),
                  ("ruth", "Finance Officer", "Budgets, funds, payment"),
                  ("grace", "Requesting Officer", "Raises the requisition"),
                  ("daniel", "Department Head", "Approves step 1"),
-                 ("samuel", "Executive Approver", "Final approvals (CD)"),
+                 ("samuel", "Executive Approver", "Final approvals"),
                  ("joseph", "Procurement Officer", "Owns it: RFQ to LPO"),
                  ("esther", "Evaluation Committee", "Scores when appointed"),
                  ("peter", "Inspection Officer", "Receives the goods"),
@@ -30,13 +30,13 @@ STAFF_SIGN_IN = [("ivan", "System Administrator", "Sets up lists and users"),
 SUPPLIER_SIGN_IN = [("mpumudde", "Application pending", "Applies to prequalify"),
                     ("busoga", "Prequalified · ICT", "Quotes, delivers, gets paid")]
 
-STAGES_PUBLIC = [("Budget approved", "Finance · Country Director"),
+STAGES_PUBLIC = [("Budget approved", "Finance · Executive Approver"),
                  ("Requisition raised", "Any IDIU staff member"),
                  ("Approvals", "Department Head · Finance · Executive Approver"),
                  ("Request for quotations", "Procurement → prequalified suppliers"),
                  ("Evaluation", "Procurement or an appointed committee"),
-                 ("LPO issued", "Finance · Country Director"),
-                 ("Delivery & inspection", "Stores"),
+                 ("LPO issued", "Finance · Executive Approver"),
+                 ("Delivery & inspection", "Inspection Officer"),
                  ("Payment reference", "Finance, then the file closes")]
 
 # Award notices: published once the LPO is issued (values agree with the supplier register and the budgets)
@@ -107,7 +107,7 @@ def w80_home():
     y, gw = 724, (QCW - 64) / 3
     cards = [
         ("building", "For suppliers", [("1", "Register and upload your company documents"),
-                                       ("2", "IDIU checks them; the Country Director prequalifies you"),
+                                       ("2", "IDIU checks them; the Executive Approver prequalifies you"),
                                        ("3", "Quote on RFQs in your categories, follow LPOs and payments")],
          "Register as a supplier", "w70"),
         ("users", "For IDIU staff", [("1", "Sign in with your IDIU email"),
@@ -206,7 +206,7 @@ def w81_about():
 
 FAQS = [("How do I become a prequalified supplier?",
          "Register as a supplier, choose your categories and upload the documents each one needs. IDIU Procurement "
-         "checks them, may visit your premises, and recommends; the Country Director decides. You get an email either "
+         "checks them, may visit your premises, and recommends; the Executive Approver decides. You get an email either "
          "way, and your account shows where your application is."),
         ("Which documents do I need?", None),
         ("Can I quote if I'm not prequalified?", None),

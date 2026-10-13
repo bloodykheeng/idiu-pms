@@ -1,7 +1,7 @@
 """Administration (w60–w63b): users, roles & permissions, approval workflows, audit trail.
 
 Viewer: Ivan Ssemanda (System Admin) for users, roles and workflows; Agnes Akello (Auditor, read-only) for
-the audit trail. A change to an approval workflow is itself approved by the Country Director, and applies
+the audit trail. A change to an approval workflow is itself approved by the Executive Approver, and applies
 only to records submitted after it (requests in flight keep the steps they were given).
 """
 from __future__ import annotations
@@ -253,7 +253,7 @@ def w62_workflows():
 def w62b_edit_workflow():
     s = console("62b Edit workflow: Requisition", "Approval workflows",
                 ["Administration", "Approval workflows", "Requisition"], "ivan", owner=True)
-    y = page_head(s, "Edit workflow: Requisition", "Your change goes to the Country Director; it applies to "
+    y = page_head(s, "Edit workflow: Requisition", "Your change goes to the Executive Approver; it applies to "
                   "requisitions submitted after it is approved.",
                   actions=[("Submit change for approval", "primary", "send", "w62"), ("Cancel", "secondary", None, "w62")])
     lw = 1060
@@ -290,7 +290,7 @@ def w62b_edit_workflow():
     s.rect(rx, y, rw, 400, fill=CARD, rx=16, stroke=LINE, name="what changes")
     s.text(rx + 24, y + 40, "What this changes", 17, 700, INK)
     s.text(rx + 24, y + 72, "Requisitions from UGX 25M to 30M will need the", 13.5, 500, INK2)
-    s.text(rx + 24, y + 92, "Country Director too.", 13.5, 500, INK2)
+    s.text(rx + 24, y + 92, "Executive Approver too.", 13.5, 500, INK2)
     s.text(rx + 24, y + 134, "LAST 90 DAYS", 10.5, 700, MUTED, spacing=0.8)
     s.text(rx + 24, y + 172, "3 requisitions", 22, 700, INK, family="display")
     s.text(rx + 24, y + 194, "were between UGX 25M and 30M", 13, 400, MUTED)
@@ -298,7 +298,7 @@ def w62b_edit_workflow():
     s.text(rx + 24, y + 250, "APPROVAL OF THIS CHANGE", 10.5, 700, MUTED, spacing=0.8)
     avatar(s, rx + 42, y + 286, 17, "SK", AMBER_D)
     s.text(rx + 68, y + 282, "Samuel Kato", 14, 700, INK)
-    s.text(rx + 68, y + 301, "Country Director · approves workflow changes", 12.5, 400, MUTED)
+    s.text(rx + 68, y + 301, "Executive Approver · approves workflow changes", 12.5, 400, MUTED)
     s.text(rx + 24, y + 350, "Requisitions already submitted keep their steps.", 13, 600, BRAND_D)
     note(s, rx, y + 420, rw, "You prepared this change, so you can't approve it: the maker-checker rule covers "
          "workflow changes too.", icon="shield")
@@ -340,7 +340,7 @@ def w63b_audit_entry():
     status_chip(s, x, y - 2, "Success")
     chip(s, x + 96, y - 2, "Budget", TEAL)
     y += 44
-    facts = [("Who", "Samuel Kato · s.kato@idiu.org · Country Director"), ("Record", "BR-2026-0006 · Head office operations"),
+    facts = [("Who", "Samuel Kato · s.kato@idiu.org · Executive Approver"), ("Record", "BR-2026-0006 · Head office operations"),
              ("Approval request", "Step 1 of 1 · comment: “Agreed, vehicle repairs are overdue.”")]
     for lab, v in facts:
         s.text(x, y, lab, 12.5, 600, MUTED)

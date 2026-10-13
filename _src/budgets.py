@@ -1,6 +1,6 @@
 """Budgets (w30–w31b) and reports (w40–w41).
 
-Budgets are maker-checker records: Finance prepares (line by line, or from Excel), the Country Director
+Budgets are maker-checker records: Finance prepares (line by line, or from Excel), the Executive Approver
 approves, and an active budget changes only through a revision. Every figure is computed from data.py.
 """
 from __future__ import annotations
@@ -146,7 +146,7 @@ def w30b_budget():
         if tgt:
             s.link(rx + 12, iy + 6, rw - 24, 78, tgt)
         iy += 88
-    note(s, rx + 24, y + 504 - 88, rw - 48, "An active budget changes only through a revision the Country Director approves.",
+    note(s, rx + 24, y + 504 - 88, rw - 48, "An active budget changes only through a revision the Executive Approver approves.",
          icon="lock")
     return s
 
@@ -157,7 +157,7 @@ def w30c_draft_budget():
     y = record_header(s, Y0, "BUD-2027-002", "Model Home Health, Kumi · FY 2027",
                       chips=[("Draft", None, "status"), ("KFHI", BRAND_M, "chip")],
                       facts=[("Department", "Programmes"), ("Cost centre", "KUM · Kumi field office"),
-                             ("Prepared by", "Ruth Nakato (you)"), ("Approves", "Samuel Kato · Country Director")],
+                             ("Prepared by", "Ruth Nakato (you)"), ("Approves", "Samuel Kato · Executive Approver")],
                       actions=[("Submit for approval", "primary", "send", "w30"), ("Save draft", "secondary", None, "w30"),
                                ("Import from Excel", "secondary", "upload", "w30d")])
     y += 20
@@ -204,7 +204,7 @@ def w30c_draft_budget():
     s.text(rx + 24, cy + 22, "APPROVAL PATH", 10.5, 700, MUTED, spacing=0.8)
     avatar(s, rx + 42, cy + 56, 17, "SK", AMBER_D)
     s.text(rx + 68, cy + 51, "Budget approval", 14, 700, INK)
-    s.text(rx + 68, cy + 70, "Samuel Kato · Country Director", 12.5, 400, MUTED)
+    s.text(rx + 68, cy + 70, "Samuel Kato · Executive Approver", 12.5, 400, MUTED)
     note(s, rx, y + 350, rw, "You prepared this budget, so you can't approve it. Until Samuel approves it, no "
          "requisition can draw on it.", icon="shield")
     return s
@@ -265,7 +265,7 @@ def w30d_import():
             s.rect(X0 + 1, y + 44 + i * 52, 3, 52, fill=RED)
     y = end + 22
     note(s, X0, y, 900, "Nothing is saved yet. Fix the three rows in Excel and upload again, or save the six ready rows "
-         "as a draft and add the rest line by line. A draft counts for nothing until the Country Director approves it.",
+         "as a draft and add the rest line by line. A draft counts for nothing until the Executive Approver approves it.",
          icon="info")
     button(s, X1, y + 4, "Save 6 ready lines as a draft", "primary", icon="check", anchor="end", target="w30")
     bw = tw("Save 6 ready lines as a draft", 14, 600) + 50
@@ -304,7 +304,7 @@ def w31_revisions(title="31 Budget revisions", viewer="ivan", owner=False):
 
 
 def _revision_page(title, active, crumbs, viewer="ivan", decide=False, back="w02"):
-    """BR-2026-0007 as a full record page. The Country Director decides on his own copy, from My approvals or from
+    """BR-2026-0007 as a full record page. The Executive Approver decides on his own copy, from My approvals or from
     Budgets › Budget revisions; everyone else sees it read only, with who it waits on."""
     s = console(title, active, crumbs, viewer, owner=decide)
     y = record_header(s, Y0, REVISION["no"], "Move UGX 9M: venues → furniture",
@@ -342,13 +342,13 @@ def _revision_page(title, active, crumbs, viewer="ivan", decide=False, back="w02
     if decide:
         decision_panel(s, X0 + lw + 20, Y0 + 148, CW - lw - 20, viewer="samuel", maker="ruth", what="revision",
                        comment="Agreed. KFHI confirmed the reallocation on 8 Oct.",
-                       steps=[("Revision approval", "Samuel Kato · Country Director", "now")], back=back)
+                       steps=[("Revision approval", "Samuel Kato · Executive Approver", "now")], back=back)
     else:
         approval_panel(s, X0 + lw + 20, Y0 + 148, CW - lw - 20, 600, [
             ("Submitted", "Ruth Nakato · Finance Officer · Fri 9 Oct, 16:12", "done"),
-            ("Revision approval", "Samuel Kato · Country Director · waiting 3 days", "now"),
+            ("Revision approval", "Samuel Kato · Executive Approver · waiting 3 days", "now"),
             ("Budget updated", "Old → new recorded in the audit trail", "next")],
-            ("Samuel Kato", "Country Director · step 1 of 1 · he decides from My approvals or from here"))
+            ("Samuel Kato", "Executive Approver · step 1 of 1 · he decides from My approvals or from here"))
     return s
 
 
@@ -358,14 +358,14 @@ def w31b_revision_approval():
 
 
 # ---------------------------------------------------------------- making and changing budgets
-FINANCE = ["Finance Officer", "System Administrator"]   # who prepares budgets and revisions (the maker); the CD approves
+FINANCE = ["Finance Officer", "System Administrator"]   # who prepares budgets and revisions (the maker); the Executive Approver approves
 
 
 def w30e_new_budget():
     """A new budget: its header (financial year, project) and its lines, entered one by one or imported from Excel.
-    It is saved as a draft; Finance submits it and the Country Director approves it."""
+    It is saved as a draft; Finance submits it and the Executive Approver approves it."""
     s = writes(console("30e New budget", "Budgets", ["Budgets", "New budget"], "ivan"), FINANCE)
-    y = page_head(s, "New budget", "Saved as a draft. Submit it when the lines are in; the Country Director approves it.",
+    y = page_head(s, "New budget", "Saved as a draft. Submit it when the lines are in; the Executive Approver approves it.",
                   actions=[("Save draft", "primary", "check", "w30"), ("Cancel", "secondary", None, "!back:w30")])
     lw = 1090
     s.rect(X0, y, lw, 176, fill=CARD, rx=16, stroke=LINE, name="budget header")
@@ -393,14 +393,14 @@ def w30e_new_budget():
     s.rect(rx, y, rw, 270, fill=CARD, rx=16, stroke=LINE, name="what happens")
     timeline(s, rx + 24, y + 24, rw - 48, [
         ("Draft, prepared by you", "Lines can change freely while it is a draft", "now"),
-        ("Budget approval", "Samuel Kato · Country Director", "next"),
+        ("Budget approval", "Samuel Kato · Executive Approver", "next"),
         ("Active", "Requisitions can draw on it; changes only by revision", "next")], title="What happens")
     note(s, rx, y + 290, rw, "Whoever prepares a budget can't approve it.", icon="shield")
     return s
 
 
 def w31c_new_revision():
-    """Editing an active budget = asking for a revision: old → new per line, a reason, the Country Director decides."""
+    """Editing an active budget = asking for a revision: old → new per line, a reason, the Executive Approver decides."""
     s = writes(console("31c Request a budget revision: Kasese ICT Hub FY 2026", "Budget revisions",
                        ["Budgets", "Budget revisions", "New revision"], "ivan"), FINANCE)
     y = page_head(s, "Request a budget revision", ref_line=("BUD-2026-001", "Kasese ICT Hub · FY 2026 · active · "
@@ -434,7 +434,7 @@ def w31c_new_revision():
     s.rect(rx, y, rw, 270, fill=CARD, rx=16, stroke=LINE, name="what happens")
     timeline(s, rx + 24, y + 24, rw - 48, [
         ("Prepared by you", "Submitted for approval when you send it", "now"),
-        ("Revision approval", "Samuel Kato · Country Director", "next"),
+        ("Revision approval", "Samuel Kato · Executive Approver", "next"),
         ("The budget changes", "Old → new is kept in the audit trail", "next")], title="What happens")
     note(s, rx, y + 290, rw, "The live budget keeps running unchanged until the revision is approved. Draft budgets "
          "(FY 2027) are edited directly, line by line.", icon="lock")

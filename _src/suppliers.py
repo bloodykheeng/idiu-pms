@@ -5,7 +5,7 @@ portal: Home, RFQs, Purchase orders, Payments, Company profile, Documents. Mpumu
 its application (w70d) and sees only that. Every portal screen is the company's own (owner).
 
 Prequalification is a maker-checker record: the supplier applies in the portal, Procurement reviews and
-recommends, the Country Director decides. Only prequalified suppliers in a category can be invited to its
+recommends, the Executive Approver decides. Only prequalified suppliers in a category can be invited to its
 RFQs without a reason (see w12b).
 """
 from __future__ import annotations
@@ -121,7 +121,7 @@ def w20b_profile():
 def w21_applications(title="21 Prequalification applications", viewer="ivan", owner=False):
     s = console(title, "Applications", ["Suppliers", "Applications"], viewer, owner=owner)
     y = page_head(s, "Prequalification applications", "Suppliers apply in the supplier portal. Procurement reviews and "
-                  "recommends; the Country Director decides.")
+                  "recommends; the Executive Approver decides.")
     rows, links = [], []
     for name, cats, sub, docs, st, who in APPLICATIONS:
         rows.append([c_text(name, INK, 700), c_text(cats, INK2), c_text(sub, INK2),
@@ -139,7 +139,7 @@ def w21_applications(title="21 Prequalification applications", viewer="ivan", ow
 
 
 def _application_page(title, active, crumbs, viewer="ivan", decide=False, back="w02"):
-    """Mpumudde's application as a full record page. The Country Director decides on his own copy (decide=True),
+    """Mpumudde's application as a full record page. The Executive Approver decides on his own copy (decide=True),
     reached from My approvals or from Suppliers › Applications; everyone else sees the same page, read only, with
     who it waits on. The menu stays the one the person came from."""
     s = console(title, active, crumbs, viewer, owner=decide)
@@ -170,15 +170,15 @@ def _application_page(title, active, crumbs, viewer="ivan", decide=False, back="
         decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer="samuel", maker="joseph", what="recommendation",
                        comment="Approved for Furniture until 31 Dec 2026.",
                        steps=[("Review and recommendation", "Joseph Waiswa · Sat 10 Oct", "done"),
-                              ("Prequalification decision", "Samuel Kato · Country Director", "now")],
+                              ("Prequalification decision", "Samuel Kato · Executive Approver", "now")],
                        back=back, approve="Prequalify", h=650)
     else:
         approval_panel(s, X0 + lw + 20, y, CW - lw - 20, 650, [
             ("Submitted by the supplier", "Fatuma Nabirye · Tue 6 Oct, 16:05", "done"),
             ("Review and recommendation", "Joseph Waiswa · Procurement Officer · Sat 10 Oct", "done"),
-            ("Prequalification decision", "Samuel Kato · Country Director · waiting 2 days", "now"),
+            ("Prequalification decision", "Samuel Kato · Executive Approver · waiting 2 days", "now"),
             ("Prequalified for Furniture", "Until 31 Dec 2026", "next")],
-            ("Samuel Kato", "Country Director · step 2 of 2 · he decides from My approvals or from here"))
+            ("Samuel Kato", "Executive Approver · step 2 of 2 · he decides from My approvals or from here"))
     return s
 
 
@@ -329,7 +329,7 @@ def w70c_submitted():
     s.text(bx + 32, 520, "What happens next", 18, 700, INK)
     steps = [("Submitted", "Tue 6 Oct · all 7 documents received", "done"),
              ("Review by IDIU Procurement", "Documents checked, and a visit to your workshop", "next"),
-             ("Decision by the Country Director", "You will get an email either way", "next"),
+             ("Decision by the Executive Approver", "You will get an email either way", "next"),
              ("Prequalified for Furniture", "You start receiving IDIU's furniture RFQs", "next")]
     sy = 562
     for i, (lab, sub, st) in enumerate(steps):
@@ -355,13 +355,13 @@ def w70d_application_status():
     s = portal("70d Supplier portal: My application (Mpumudde)", "My application", "mpumudde")
     m = MPUMUDDE
     y = page_head(s, "Your application", ref_line=("SUP-APP-0142", f"{m['name']} · Furniture · submitted Tue 6 Oct 2026"))
-    status_chip(s, X1, Y0 + 14, "Pending approval", label="With the Country Director", anchor="end")
+    status_chip(s, X1, Y0 + 14, "Pending approval", label="With the Executive Approver", anchor="end")
     lw = 1000
     s.rect(X0, y, lw, 274, fill=CARD, rx=16, stroke=LINE, name="where it is")
     s.text(X0 + 28, y + 42, "Where your application is", 17, 700, INK)
     steps = [("Submitted", "Tue 6 Oct · 7 of 7 documents", "done"),
              ("Reviewed by Procurement", "Sat 10 Oct · recommended", "done"),
-             ("Country Director's decision", "Waiting since Sat 10 Oct", "now"),
+             ("Executive Approver's decision", "Waiting since Sat 10 Oct", "now"),
              ("Prequalified for Furniture", "RFQs start coming to you", "next")]
     sw = (lw - 56) / len(steps)
     ty = y + 104
@@ -380,7 +380,7 @@ def w70d_application_status():
         s.text(sx, ty + 44, lab, 14.5, 700, INK if st != "next" else INK2, maxw=sw - 12)
         s.text(sx, ty + 64, sub, 12.5, 400, AMBER_D if st == "now" else MUTED, maxw=sw - 12)
     note(s, X0 + 28, y + 206, lw - 56, "IDIU Procurement visited your workshop on 8 Oct and recommended you for Furniture. "
-         "You'll get an email as soon as the Country Director decides.", icon="info")
+         "You'll get an email as soon as the Executive Approver decides.", icon="info")
     y2 = y + 294
     s.rect(X0, y2, lw, 1050 - y2, fill=CARD, rx=16, stroke=LINE, name="documents")
     s.text(X0 + 28, y2 + 40, "Your documents", 17, 700, INK)
@@ -799,7 +799,7 @@ def w77b_renew():
             s.text(x + 30, dy, d, 14, 500, INK2)
             s.text(x + w, dy, "carries over", 13, 500, MUTED, anchor="end")
         dy += 40
-    note(s, x, dy, w, "IDIU Procurement checks the renewal and the Country Director approves it, as for a new "
+    note(s, x, dy, w, "IDIU Procurement checks the renewal and the Executive Approver approves it, as for a new "
          "application. You keep receiving RFQs meanwhile.", icon="info")
     by = H / 2 + 720 / 2 - 76
     button(s, x + w, by, "Submit renewal", "primary", icon="send", anchor="end", h=44, target="w77")

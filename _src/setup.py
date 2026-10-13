@@ -49,7 +49,7 @@ def w50_financial_years():
                    "Budgets belong to a financial year. Only an open year takes new requisitions.",
                    cols, rows, "Search financial years…", "New financial year", "w50b", hl=1,
                    footnote="Closing FY 2026 will lock its budgets: open requisitions must be finished or moved to "
-                            "FY 2027 first. Closing a year needs the Country Director's approval.")
+                            "FY 2027 first. Closing a year needs the Executive Approver's approval.")
 
 
 def w50b_new_financial_year():
@@ -66,7 +66,7 @@ def w50b_new_financial_year():
     chip(s, x, y + 26, "Planning", BLUE)
     s.para(x + 96, y + 43, "Opens for requisitions when FY 2027 closes.", w - 96, 13, 400, MUTED)
     y += 70
-    note(s, x, y, w, "A year can't overlap another. Opening and closing a year need the Country Director's approval.",
+    note(s, x, y, w, "A year can't overlap another. Opening and closing a year need the Executive Approver's approval.",
          icon="shield")
     by = 1080 / 2 + 560 / 2 - 66
     s.line(x - 32, by - 14, x + w + 32, by - 14, LINE)
@@ -206,7 +206,7 @@ def w54b_new_project():
         if done is None:
             chip(s, rx + rw - 28, cy - 12, "You are here", BRAND, anchor="end")
     note(s, rx, y + 400, rw, "Once saved, Finance can enter the project's budget line by line or import it from Excel, "
-         "and submit it to the Country Director for approval.", icon="wallet")
+         "and submit it to the Executive Approver for approval.", icon="wallet")
     return s
 
 

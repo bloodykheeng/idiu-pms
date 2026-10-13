@@ -113,7 +113,7 @@ def w10c_new_requisition():
     s.text(rx + 24, y + 310, "Approval path", 17, 700, INK)
     s.text(rx + 24, y + 332, "Worked out from the value when you submit", 13, 400, MUTED)
     steps = [("1  Department review", "Your Department Head"), ("2  Funds check", "Finance Officer"),
-             ("3  Executive approval", "Country Director · only above UGX 30M")]
+             ("3  Executive approval", "Executive Approver · only above UGX 30M")]
     sy = y + 372
     for i, (step, who) in enumerate(steps):
         if i < 2:
@@ -485,7 +485,7 @@ def w12b_new_rfq():
     s.text(rx + 24, y + 62, "Prequalified in Furniture · only they can be invited without a reason", 13, 400, MUTED)
     sups = [("Wairaka Woodworks Ltd", "Prequalified · Jinja · 2 LPOs this year", True, "ok"),
             ("Iganga Office Furnishers", "Prequalified · Iganga · 1 LPO this year", True, "ok"),
-            ("Mpumudde Furniture Works", "Prequalification awaiting the Country Director", False, "pending")]
+            ("Mpumudde Furniture Works", "Prequalification awaiting the Executive Approver", False, "pending")]
     sy = y + 86
     for name, sub, on, kind in sups:
         dis = kind == "pending"
@@ -571,16 +571,16 @@ def w12c_comparison():
 
 # ---------------------------------------------------------------- evaluation
 def w13_evaluations():
-    """Every evaluation, as Procurement, Finance, the Country Director and the auditor see them."""
+    """Every evaluation, as Procurement, Finance, the Executive Approver and the auditor see them."""
     s = console("13 Evaluations", "Evaluations", ["Procurement", "Evaluations"], "ivan")
     y = page_head(s, "Evaluations", "Committee evaluations for procurements above UGX 30M. Members score alone; the "
-                  "chair's report goes to the Country Director.")
+                  "chair's report goes to the Executive Approver.")
     rows = [[c_ref("PR-2026-0090", "Washroom block, Busalamu P/S · RFQ-2026-0033"), c_person("esther", "Chair"),
              c_text("3 bids", INK2), c_text("2 of 3 submitted", INK, 600), c_status("Evaluation", "Scoring"),
              c_two("Tue 13 Oct", "due tomorrow", bold=False)],
             [c_ref("PR-2026-0089", "Printing teacher training manuals · RFQ-2026-0032"), c_person("moses", "Chair"),
              c_text("3 bids", INK2), c_text("3 of 3 · report sent", INK2), c_status("Award", "Award pending"),
-             c_two("Thu 1 Oct", "with the Country Director", bold=False)],
+             c_two("Thu 1 Oct", "with the Executive Approver", bold=False)],
             [c_ref("PR-2026-0087", "10 laptops for training room 2 · RFQ-2026-0031"), c_person("esther", "Chair"),
              c_text("3 bids", INK2), c_text("3 of 3 · awarded", INK2), c_status("Closed", "Awarded"),
              c_two("Thu 1 Oct", "awarded to Busoga Tech", bold=False)],
@@ -607,7 +607,7 @@ def w13_mine():
              c_two("Tue 13 Oct", "due tomorrow", bold=False)],
             [c_ref("PR-2026-0089", "Printing teacher training manuals · RFQ-2026-0032"), c_chip("Member", TEAL),
              c_text("3 bids", INK2), c_status("Scored", "Submitted 1 Oct"), c_text("3 of 3 · report sent", INK2),
-             c_two("Thu 1 Oct", "award with the Country Director", bold=False)],
+             c_two("Thu 1 Oct", "award with the Executive Approver", bold=False)],
             [c_ref("PR-2026-0087", "10 laptops for training room 2 · RFQ-2026-0031"), c_chip("Chair", VIOLET),
              c_text("3 bids", INK2), c_status("Scored", "Submitted 30 Sep"), c_text("3 of 3 · awarded", INK2),
              c_two("Thu 1 Oct", "awarded to Busoga Tech", bold=False)],
@@ -741,7 +741,7 @@ def _award_page(title, active, crumbs, viewer="ivan", decide=False, back="w02"):
     if decide:
         decision_panel(s, X0 + lw + 20, y, CW - lw - 20, viewer="samuel", maker="joseph", what="award recommendation",
                        comment="Approved. Jinja Print & Pack's sample was the only one that passed.",
-                       steps=[("Award approval", "Samuel Kato · Country Director", "now")], back=back,
+                       steps=[("Award approval", "Samuel Kato · Executive Approver", "now")], back=back,
                        approve="Approve award", h=560)
     else:
         approval_panel(s, X0 + lw + 20, y, CW - lw - 20, 560, [
@@ -812,7 +812,7 @@ def w13d_file_evaluation():
     s.line(rx + 24, y + 126, rx + rw - 24, y + 126, LINE2)
     avatar(s, rx + 42, y + 162, 17, "SK", AMBER_D)
     s.text(rx + 70, y + 157, "Approved by Samuel Kato", 14, 700, INK)
-    s.text(rx + 70, y + 176, "Country Director · Mon 5 Oct, 09:20", 12.5, 400, MUTED)
+    s.text(rx + 70, y + 176, "Executive Approver · Mon 5 Oct, 09:20", 12.5, 400, MUTED)
     s.rect(rx + 24, y + 200, rw - 48, 60, fill=FIELD_BG, rx=10)
     s.para(rx + 38, y + 225, "“Approved: Busoga Tech Supplies, best score and within budget.”", rw - 76, 13, 500, INK2, lh=19)
     s.rect(rx, y + 310, rw, 60, fill=CARD, rx=14, stroke=LINE)
@@ -1105,7 +1105,7 @@ def w15d_delivery():
     s.rect(rx, y, rw, 250, fill=CARD, rx=16, stroke=LINE, name="inspected by")
     s.text(rx + 24, y + 40, "Inspected by", 17, 700, INK)
     for i, (who, sub) in enumerate([("brian", "ICT · technical check"), ("grace", "User department · Programmes"),
-                                    ("peter", "Stores · recorded the GRN")]):
+                                    ("peter", "Inspection Officer · recorded the GRN")]):
         name, ini, *_rest, col = PEOPLE[who]
         avatar(s, rx + 44, y + 86 + i * 52, 17, ini, col)
         s.text(rx + 70, y + 82 + i * 52, name, 14, 700, INK)
