@@ -31,14 +31,14 @@ rules (front door, roles and sessions, page vs dialog, approvals in place).
 | **Master data first, in dependency order** (§4) | You cannot create a department user before the department exists | Starting from transactions |
 | **Maker-checker on financial and supplier records** (§5), Alpha's engine | Budgets, requisitions, awards, LPOs and prequalification are controlled records | Approval on plain lists (departments, units) |
 | **Budgets: line by line or Excel import, then approval; live budgets change only by revision** | Finance enters budgets both ways; an approved budget must not be silently edited | One-way upload |
-| **10 roles** (§3), merged from the proposal's 12 | IDIU is small; the final matrix is agreed at requirements (proposal §15) | Separate Budget Holder and Procurement Manager roles |
+| **One role per person, named as in the proposal's role table (§15)**: Requesting Officer, Department Head, Finance Officer, Procurement Officer, Evaluation Committee Member, Executive Approver, Inspection Officer, System Administrator, Auditor (+ Supplier) | The user: "why are we having two requesters… isn't this confusion, same role doing two different things" → "let's make everything match so everyone has one role". IDIU will hold each demo account against the proposal's table. The committee is a role (§15) granted by appointment per procurement with a declaration (§7). The proposal's Budget Holder (funds check → Finance Officer) and Procurement Manager (oversight → Executive Approver) stay folded in: IDIU is small, and w61 says so | Committee as an appointment on top of a Requester role; renamed or merged role names that don't match the proposal |
 | **Illustrative names**, real organisation, places, projects and donors | Real IDIU staff evaluate it; guessing their roles would be presumptuous | Real staff names |
 | **Example thresholds** UGX 5M / 30M, labelled "to be set from IDIU's procurement manual" | IDIU has not shared its manual | Inventing "official" numbers |
 | **The system does not pay suppliers**: Finance records the payment reference | Proposal §10: reference-level integration is the guaranteed minimum | Showing a payment or accounting module |
 | **Fresh 2026 look**, only identity taken from idiu.org (greens, logo) | Their WordPress site is old | Copying the website |
 | **Sign in as any role** (demo) and an "Illustrative data" pill | Their ask: test permissions per role | |
 | **Sessions, like the real app** (SDS: AuthContext + AppSidebar + routeAccess): whoever signs in keeps their own sidebar, name and Dashboard on every screen until they switch; a link never opens another person's own screen or a menu their role lacks | Presenting: the person and the menus changed from screen to screen, and Dashboard from the Country Director's sidebar opened the Procurement Officer's (the user: "confusion for nothing") | Baking each screen with whoever performs that step |
-| **System Admin sees every menu; the Auditor all but My approvals; everyone else only theirs**, groups collapsed but visible | SDS: System Admin is unscoped; the user: "system admin has to see all these, other people see only what they're supposed to see" | Admin seeing only Setup and Users |
+| **The System Administrator sees every menu; the Auditor all but My approvals; everyone else only theirs**, groups collapsed but visible | SDS: System Admin is unscoped; the user: "system admin has to see all these, other people see only what they're supposed to see" | Admin seeing only Setup and Users |
 
 **Out of scope** (the user: "don't add a lot of unnecessary functionality"): payments, stores / inventory /
 assets, contract management, public tender portal, sealed e-bidding, procurement plan, SMS, AI, mobile app.
@@ -55,11 +55,11 @@ complete and closed this morning; other files are in flight so every action scre
 |---|---|---|---|---|---|
 | **PR-2026-0087** | 10 laptops for the second training room | Kasese ICT Hub (KOICA) | 38,000,000 est. · LPO 36,400,000 | Paid (09:38) and closed (09:41) today | The file's 8 tabs: w11 Overview, w11b Approvals, w12c Sourcing, w13d Evaluation, w14b LPO, w15d Delivery, w15c Payment, w11c Documents & history |
 | PR-2026-0096 | Solar backup system | Kasese ICT Hub | 34,500,000 | Awaiting Country Director (step 3 of 3) | Approval decision (w02b) |
-| PR-2026-0095 | Hygiene kits for model homes | Model Home Health, Kumi | 3,600,000 | Awaiting Head of Department (step 1 of 2) | Daniel's decision (w03b) |
+| PR-2026-0095 | Hygiene kits for model homes | Model Home Health, Kumi | 3,600,000 | Awaiting the Department Head (step 1 of 2) | Daniel's decision (w03b) |
 | PR-2026-0093 | Network switches and cabling | Teacher ICT Initiative, Kamuli | 14,200,000 | RFQ-2026-0035 open, closes Wed 14 Oct | Busoga Tech quotes in the portal (w72) |
 | PR-2026-0091 | Desks and chairs | Teacher ICT Initiative, Kamuli | 18,600,000 | Approved, waiting for an RFQ | New RFQ (w12b) |
 | PR-2026-0090 | Washroom block, Busalamu P/S | Busalamu School Sanitation, Luuka | 86,000,000 | Committee evaluation | Committee scoring (w13b) |
-| PR-2026-0089 | Printing teacher training manuals | Teacher ICT Initiative, Kamuli | 31,200,000 | Award awaiting Country Director | Award approval (w13c) |
+| PR-2026-0089 | Printing teacher training manuals | Teacher ICT Initiative, Kamuli | 31,200,000 | Award awaiting the Executive Approver (Country Director) | Award approval (w13c) |
 | PR-2026-0084 | Stationery for vocational classes | Women's Vocational Training, Mayuge | 6,800,000 | Delivery arriving today | Goods received (w15b) |
 | PR-2026-0098 | Projector and screen | Kasese ICT Hub | 4,200,000 | Being drafted by Grace | New requisition (w10b) |
 
@@ -97,14 +97,16 @@ budget (BR-2026-0007, Kamuli) waits for the Country Director (w31b).
 
 | Person | Role | Department · office | Signs in to |
 |---|---|---|---|
-| Grace Atim | Requester (Programme Officer) | Programmes · Kasese | w10b her new requisition |
-| Daniel Okello | Head of Department | Programmes · Jinja HQ | w03 his approvals |
+| Grace Atim | Requesting Officer (Programme Officer, Kasese ICT Hub) | Programmes · Kasese | w10b her new requisition |
+| Harriet Kyomuhendo | Requesting Officer (Programme Officer, field projects): raised PR-0084 to PR-0095 | Programmes · Jinja HQ | not a demo sign-in |
+| Daniel Okello | Department Head (Head of Programmes); away 19–30 Oct, Rebecca Achan acts | Programmes · Jinja HQ | w03 his approvals |
 | Ruth Nakato | Finance Officer | Finance · Jinja HQ | w30 Budgets |
 | Joseph Waiswa | Procurement Officer | Procurement & Logistics · Jinja HQ | w01-joseph Dashboard |
-| Samuel Kato | Country Director | Country Director's office · Jinja HQ | w02 My approvals |
-| Esther Namutebi, Brian Ouma, Moses Tumusiime | Requesters, **appointed** to evaluation committees | Programmes / ICT / Finance | w13 Evaluations (Esther) |
-| Peter Mukasa | Stores / Inspection Officer | Administration · Jinja HQ | w15 Deliveries |
-| Ivan Ssemanda | System Admin | ICT · Jinja HQ | w60 Users |
+| Samuel Kato | Executive Approver (job: Country Director) | Country Director's office · Jinja HQ | w02 My approvals |
+| Esther Namutebi, Brian Ouma, Moses Tumusiime | Evaluation Committee Members, appointed per procurement (Esther chairs) | Programmes / ICT / Finance | w13-esther My evaluations (Esther) |
+| Peter Mukasa | Inspection Officer (stores) | Administration · Jinja HQ | w15 Deliveries |
+| Rebecca Achan | Department Head, Administration: Daniel's acting approver | Administration · Jinja HQ | not a demo sign-in |
+| Ivan Ssemanda | System Administrator | ICT · Jinja HQ | w60 Users |
 | Agnes Akello | Auditor (read-only) | Internal Audit · Jinja HQ | w63 Audit trail |
 | Amos Waiswa (Busoga Tech Supplies) | Supplier, prequalified (ICT) | | w71 Supplier portal home |
 | Fatuma Nabirye (Mpumudde Furniture Works) | Supplier, applied and pending | | w70d My application (registered through w70 → w70c) |
@@ -121,14 +123,14 @@ Jinja Office Mart · **Solar** SunPower Busoga Ltd.
 
 | Role | Does | Lands on |
 |---|---|---|
-| Requester | Raises requisitions, follows them, answers returns | Requisitions (mine) |
-| Head of Department | Step 1 of requisitions from their department | My approvals |
+| Requesting Officer | Raises requisitions, follows them, answers returns | Dashboard (my requisitions) |
+| Department Head | Step 1 of requisitions from their department | My approvals |
 | Finance Officer | Budgets (maker), funds check on requisitions and LPOs, payment reference | Budgets |
 | Procurement Officer | Supplier review, RFQs, comparison, award recommendation, LPOs, close-out | Dashboard |
-| Evaluation Committee Member | Not a role of its own: users are **appointed** per procurement and see only those evaluations | Evaluations |
-| Country Director | High-value requisitions, awards, LPOs, budgets, revisions, prequalification, workflow changes | My approvals |
-| Stores / Inspection Officer | Goods received and inspection | Deliveries |
-| System Admin | Setup lists, users, roles, approval workflows (changes approved by the Country Director) | Users |
+| Evaluation Committee Member | Scores the evaluations they are appointed to (per procurement, after a declaration); menu: Dashboard, Evaluations | Dashboard (my evaluations) |
+| Executive Approver | The Country Director: high-value requisitions, awards, LPOs, budgets, revisions, prequalification, workflow changes (also the proposal's Procurement Manager oversight) | My approvals |
+| Inspection Officer | Goods received and inspection | Deliveries |
+| System Administrator | Setup lists, users, roles, approval workflows (changes approved by the Executive Approver) | Users |
 | Auditor | Reads everything, changes nothing, audit trail | Audit trail |
 | Supplier (external) | Registers, documents, quotations, LPOs, sees payment references | Supplier portal home (w71); a pending applicant, their application (w70d) |
 
@@ -180,13 +182,13 @@ Draft ──Submit──▶ Pending approval ──Approve (last step)──▶ 
 
 | Record | Maker | Steps (example) |
 |---|---|---|
-| Requisition | Requester | 1 Head of Department · 2 Finance Officer (funds) · 3 Country Director, **only ≥ UGX 30M** |
-| Award recommendation | Procurement Officer | 1 Country Director |
+| Requisition | Requesting Officer | 1 Department Head · 2 Finance Officer (funds; the proposal's Budget Holder) · 3 Executive Approver, **only ≥ UGX 30M** |
+| Award recommendation | Procurement Officer | 1 Executive Approver |
 | LPO | Procurement Officer | 1 Finance Officer (commitment) · 2 Country Director, **only ≥ UGX 5M** |
-| Budget | Finance Officer | 1 Country Director |
-| Budget revision | Finance Officer | 1 Country Director |
-| Supplier prequalification | Procurement Officer (recommends) | 1 Country Director |
-| Approval workflow change | System Admin | 1 Country Director |
+| Budget | Finance Officer | 1 Executive Approver |
+| Budget revision | Finance Officer | 1 Executive Approver |
+| Supplier prequalification | Procurement Officer (recommends) | 1 Executive Approver |
+| Approval workflow change | System Administrator | 1 Executive Approver |
 
 **Methods by value (example, to be set from IDIU's procurement manual):**
 
@@ -236,7 +238,7 @@ action returns to the file or the list it came from.
 | w02-ruth, w02-ivan | My approvals with nothing waiting (empty state, recently decided) | decided rows → file tabs, LPO |
 | w02 | My approvals (Samuel) | rows → w02b, w13c, w31b, w21b; recently decided → w11b, w14b |
 | w02b | Approve requisition PR-0096, step 3 of 3 (Samuel) | Approve / Return / Reject → w02 |
-| w03 | My approvals (Daniel, Head of Department) | PR-0095 → w03b |
+| w03 | My approvals (Daniel, Department Head) | PR-0095 (Harriet's) → w03b |
 | w03b | Approve requisition PR-0095, step 1 of 2 (Daniel) | Approve / Return / Reject → w03 |
 | w10 | Requisitions (page 1 of 98) | New requisition → w10c; PR-0087 → w11; PR-0098 → w10b (Grace's); PR-0091 → w12b (Joseph's) |
 | w10b | Grace's draft requisition PR-0098 (from her dashboard) | Submit / Save draft → w10 |
@@ -248,7 +250,7 @@ action returns to the file or the list it came from.
 | w12b | New RFQ for PR-0091 (Joseph) | Send / Save draft → w12 |
 | w12c | File: Sourcing (quotation comparison) | tabs |
 | w13 | Evaluations: all committees (Procurement, Finance, Country Director, auditor) | PR-0087 → w13d |
-| w13-esther | My evaluations (Esther, appointed) | PR-0090 → w13b; PR-0087 → w13d |
+| w13-esther | My evaluations (Esther, Evaluation Committee Member) | PR-0090 → w13b; PR-0087 → w13d |
 | w13b | Committee scoring PR-0090 (Esther) | Submit / Save → w13 |
 | w13c | Approve award PR-0089 (Samuel) | Approve / Return / Reject → w02 |
 | w13d | File: Evaluation | tabs |
@@ -281,7 +283,7 @@ action returns to the file or the list it came from.
 | w51b | New department (dialog) | Save / Cancel → w51 |
 | w54b | New project (form, with the setup order) | Save / Cancel → w54 |
 | w60 | Users | Add user → w60c; Daniel → w60b |
-| w60b | Edit user: Daniel (role, acting approver 19–30 Oct; System Admin only) | Save / Cancel → w60 |
+| w60b | Edit user: Daniel (one role, acting approver Rebecca Achan 19–30 Oct; System Administrator only) | Save / Cancel → w60 |
 | w60c | Add user (dialog: name, phone, email, department, office, role, first password; email the sign-in details) | Add user / Cancel → w60 |
 | w61 | Roles & permissions (matrix) | |
 | w62 | Approval workflows + methods by value | Requisition → w62b |
@@ -344,5 +346,6 @@ counts with Deactivate instead of Delete, Ctrl+K search.
 | Accounting package and chart of accounts | Account codes, the export | Illustrative 5xxx codes; Excel export + payment reference |
 | Is there a Finance Manager separate from the Finance Officer? | Budget approval step | Country Director approves budgets |
 | Financial year (Jan–Dec or Jul–Jun) and donor budget periods | Budgets | FY 2026 = Jan to Dec |
-| Who sits on evaluation committees; standing or per procurement? | Committee screens | Appointed per procurement |
+| Who sits on evaluation committees; standing or per procurement? | Committee screens | A role, appointed per procurement |
+| Do they use a Budget Holder or Procurement Manager separate from Finance and the Country Director? | Roles | Folded in (w61 note) |
 | A working sandbox (enter data, run approvals) after the mockup? | Their "test data entry" ask | Mockup shows flows; a sandbox needs a build |

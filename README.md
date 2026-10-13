@@ -58,7 +58,7 @@ laptop or phone (a few KB per screen). The same font files measure text, so alig
 | `_src/data.py` | The illustrative data every screen shares (people, master data, files, budgets, suppliers) |
 | `_src/shell.py` | Frames: `console()` (sidebar per role), `portal()` (the supplier's sidebar), `public()`, `auth()`, `register_frame()`; list pattern, tabs, dialogs, drawers |
 | `_src/public.py` | The front door: w80–w83 public site, w00 sign in (staff and suppliers), w00b forgot password |
-| `_src/home.py` | w01-<person> each person's own dashboard, w02–w02b and w02-ruth / w02-ivan approvals, w03–w03b Head of Department's |
+| `_src/home.py` | w01-<person> each person's own dashboard, w02–w02b and w02-ruth / w02-ivan approvals, w03–w03b the Department Head's |
 | `_src/procurement.py` | w10–w15: requisitions (w10c a blank new one), the procurement file, RFQs, evaluation, LPOs, deliveries |
 | `_src/suppliers.py` | w20–w21c supplier register, prequalification and the application page (`_application_page`); w70–w70c registering; w70d an applicant's status; w71–w77b the supplier portal |
 | `_src/budgets.py` | w30–w31d budgets, New budget, revisions and Request a revision (`_revision_page`); w40–w41 reports |
@@ -178,7 +178,7 @@ not taste.
 - **Budget arithmetic:** Budget − Reserved − Committed − Spent = Available, computed in `data.py`; never type a
   budget figure into a screen by hand.
 - **Master data is created in order** (PLAN §4) and is deactivated, never deleted, once used.
-- **Each role sees only its menu** (`PERMS` in `data.py`, also drawn on w61): System Admin all 26 entries, the Auditor all but My approvals.
+- **Each role sees only its menu** (`PERMS` in `data.py`, also drawn on w61): one role per person, named as in the proposal (§15); the System Administrator sees all 26 entries, the Auditor all but My approvals.
 - **The signed-in person never changes on a click.** A screen that shows one person (their dashboard, inbox, decision, form) is built with `console(..., viewer, owner=True)`; everything else is shared and built as the System Admin (`viewer="ivan"`). Dashboard and My approvals go to the person's own (`data.menu_target`). `check.py` walks every session and fails otherwise.
 - **Today is Mon 12 Oct 2026.** PR-2026-0087 (10 laptops, Kasese ICT Hub) is the flagship file; its dates in
   PLAN §2 are the truth for every history, approval and audit entry.
@@ -196,8 +196,10 @@ not taste.
 - **One front door.** Public site → Sign in (or Register) → the dashboard of whoever signed in. A new entry point
   (a page, a role, a supplier account) goes through it: add the account to the demo "sign in as" on w00
   (`public.py`) and to `data.SUPPLIER_ACCOUNTS` / `SESSIONS`.
-- **Committee members are appointed, not a role**: Esther, Brian and Moses are Requesters; `PERMS` gives
-  Requesters an Evaluations menu that lists only what they are appointed to.
+- **One role per person.** The Evaluation Committee Member is a role (Esther, Brian, Moses) whose menu is Dashboard and
+  Evaluations; membership of a committee is appointed per procurement with a declaration. Committee members don't
+  raise requisitions (Harriet Kyomuhendo, a Requesting Officer, raised PR-0084 to PR-0095). Role names come from
+  `data.ROLES`; use `data.ROLE_SHORT` where a name is too long.
 
 ---
 

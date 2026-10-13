@@ -24,7 +24,7 @@ Home · About · FAQs · Notices  ──►  Sign in (staff AND suppliers)  ─�
 | Opening the mockup with no `#` shows the **public Home** | That is what a visitor sees first | `w80` |
 | Every public page has **Sign in**; Home, Notices and FAQs also lead to **Register** | Nobody should hunt for the door | header, hero, footer |
 | **One Sign in page** for every kind of user; the dashboard depends on the role | Alpha `app/dashboard/layout.tsx`: investor → `@investor`, anyone else → `@admin` | `w00` → `data.home_key()` |
-| Staff **never register**; the System Admin adds them | Accounts are controlled | Add user `w60c` |
+| Staff **never register**; the System Administrator adds them | Accounts are controlled | Add user `w60c` |
 | A pending applicant sees **only their application** | Nothing in a menu may be dead | `w70d`, menu "My application" |
 | Signing out returns to the **public Home**; clicking your name returns to Sign in (to switch, in a demo) | How real apps behave | red button → `w80`, name → `w00` |
 
@@ -41,12 +41,15 @@ SDS `sdstool-nextjs/app/(main)`, `(auth)/login`, `lib/routeAccess.ts`, `componen
 ### One matrix decides every sidebar
 - `data.PERMS`: role → menu entries, kept in sidebar order (SDS `routeAccess.ts`). The Roles & permissions screen
   (`w61`) draws the same matrix, so what the client reads is what the sidebars do.
-- **System Admin sees every menu. The Auditor sees everything but My approvals and fills in nothing.** Everyone else
+- **One role per person**, named as in the client's role table (the proposal's §15). Two people with the same role
+  doing different jobs confuses everyone (the user: "isn't this confusion, same role doing two different things").
+- **The System Administrator sees every menu. The Auditor sees everything but My approvals and fills in nothing.** Everyone else
   sees only their own. (The user: "system admin has to see all these, other people see only what they're supposed to
   see.")
 - Groups stay collapsed but visible; a group with no allowed entry is hidden.
-- An appointment is not a role: committee members are Requesters appointed per procurement, and see only the
-  evaluations they are on.
+- A committee is a role granted by appointment: Evaluation Committee Members are appointed per procurement, sign a
+  declaration, and see only the evaluations they are on. They don't raise requisitions. A stand-in (acting approver)
+  has the same role as the person they stand in for.
 
 ### A session is one signed-in account, and it never changes on a click
 | Kind of screen | Built as | In the viewer |
@@ -64,10 +67,10 @@ fill in. `check.py` walks every session and fails otherwise. (The user, when the
 ### Who may create what (maker-checker)
 | Record | Maker (may open the form) | Checker |
 |---|---|---|
-| Requisition | any role with Requisitions, except the Auditor | Head of Department → Finance → Country Director (above the threshold) |
-| Budget, budget revision | Finance Officer, System Admin | Country Director |
+| Requisition | any role with Requisitions, except the Auditor | Department Head → Finance Officer → Executive Approver (above the threshold) |
+| Budget, budget revision | Finance Officer, System Administrator | Executive Approver |
 | Award, LPO, prequalification recommendation | Procurement Officer | Country Director (LPO: Finance first) |
-| Setup lists, users | System Admin (Finance: years, account codes; Procurement: categories, document types, units) | none: plain lists |
+| Setup lists, users | System Administrator (Finance: years, account codes; Procurement: categories, document types, units) | none: plain lists |
 
 Whoever prepares a record can't approve any step of it, and a return or reject needs a comment. A live record is
 never edited directly: **an active budget changes by revision** (old → new), a draft is edited freely.
