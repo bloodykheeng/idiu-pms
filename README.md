@@ -153,7 +153,7 @@ python smoke.py              # click through it in a real browser (must pass)
 - every screen loads (light and dark);
 - every screen shows exactly the hotspots whose targets exist;
 - no hash opens the public Home;
-- forms: the Auditor sees no hotspot to Add user, New requisition or New budget; nor does the Country Director to New budget (Finance prepares, he approves);
+- forms: the Auditor sees no hotspot to Add user, New requisition or New budget; nor does the Executive Approver to New budget (Finance prepares, he approves);
 - under a dialog (Ruth on w50b) the sidebar is dimmed and has no hotspots;
 - full screen: hovering the public footer's links doesn't raise the bar; the very bottom edge does;
 - 13 walkthroughs (`WALKS`, one through every setup list's New dialog) click real hotspots: the public site → register → application status; Home → Sign in → each staff person's path; the full supplier portal (RFQ, quote, LPOs, payments, profile, documents, renew); the applicant; signing out returns to Home. Every click must land on the expected screen, and the signed-in account and its sidebar must not change;
@@ -179,7 +179,7 @@ not taste.
   budget figure into a screen by hand.
 - **Master data is created in order** (PLAN §4) and is deactivated, never deleted, once used.
 - **Each role sees only its menu** (`PERMS` in `data.py`, also drawn on w61): one role per person, named as in the proposal (§15); the System Administrator sees all 26 entries, the Auditor all but My approvals.
-- **The signed-in person never changes on a click.** A screen that shows one person (their dashboard, inbox, decision, form) is built with `console(..., viewer, owner=True)`; everything else is shared and built as the System Admin (`viewer="ivan"`). Dashboard and My approvals go to the person's own (`data.menu_target`). `check.py` walks every session and fails otherwise.
+- **The signed-in person never changes on a click.** A screen that shows one person (their dashboard, inbox, decision, form) is built with `console(..., viewer, owner=True)`; everything else is shared and built as the System Administrator (`viewer="ivan"`). Dashboard and My approvals go to the person's own (`data.menu_target`). `check.py` walks every session and fails otherwise.
 - **Today is Mon 12 Oct 2026.** PR-2026-0087 (10 laptops, Kasese ICT Hub) is the flagship file; its dates in
   PLAN §2 are the truth for every history, approval and audit entry.
 - **No payments, stores or mobile app** in the system (PLAN §1).

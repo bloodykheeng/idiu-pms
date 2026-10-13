@@ -22,7 +22,7 @@ rules (front door, roles and sessions, page vs dialog, approvals in place).
 |---|---|---|
 | **One system, one front door**: public site (Home · About · FAQs · Notices) → one Sign in for staff and suppliers (Register as a supplier, Forgot password) → a dashboard chosen by who signed in: staff get the console, a supplier the supplier portal, an applicant their application status | How real systems are linked (Alpha: `(main)` → `(auth)` → `dashboard/layout.tsx` picks `@investor` or `@admin` by role; SDS: landing → `/login` → role-shaped sidebar). The user: the mockup "starts at supplier registration" as if it were a separate system, "you design as if it's an essay, you don't reason how a system should be linked" | Registration as the entry; a supplier portal with no sign-in and dead menu entries |
 | **A record opens as a full page inside the menu it was opened from, and the approver decides on it there** (the idea of Alpha's `RecordDetailsDialog`: details, approval timeline, action; not its dialog). **Dialogs only for small forms**: setup lists, users, a financial year | The user: an application "takes me back up to approvals… I can approve under the approvals or even under the supplier themselves"; then "leave dialogs in these small modules of setup, users etc., be wise, not everywhere". Samuel gets his own copy with the decision panel (`w21c-samuel`); everyone else sees the approval timeline and who it waits on | Rows that jump to My approvals; record dialogs for applications, revisions, budgets |
-| **Every create / edit button works for whoever may use it** (forms are `write` screens with the roles allowed to fill them in) | The user found Add user, New financial year, New budget, New requisition and budget edits dead. The Auditor reads everything and fills in nothing; budgets and revisions are Finance's (and the System Admin's); the Country Director approves them | Linking "New" buttons to one person's own draft (dead for everyone else) |
+| **Every create / edit button works for whoever may use it** (forms are `write` screens with the roles allowed to fill them in) | The user found Add user, New financial year, New budget, New requisition and budget edits dead. The Auditor reads everything and fills in nothing; budgets and revisions are Finance's (and the System Administrator's); the Executive Approver approves them | Linking "New" buttons to one person's own draft (dead for everyone else) |
 | **Under a dialog nothing is clickable**, and **the highlighted row in a list is the one to click** | The user: sidebar and theme buttons showed hotspots under the audit drawer; RFQs highlighted a row only Joseph could open | |
 | **Suppliers are sessions too**, with a sidebar like the console's | Alpha's investor portal is a sidebar like its staff side; one frame reads as one system. Every portal screen is the company's own, so the company never changes on a click | A separate top-nav portal |
 | **Web only**: staff console + supplier portal, all 1920×1080 | Proposal §16 promises a responsive web app; no app line in the budget | A mobile app; phone-width renders ("it's web only, this is just a mockup") |
@@ -38,7 +38,8 @@ rules (front door, roles and sessions, page vs dialog, approvals in place).
 | **Fresh 2026 look**, only identity taken from idiu.org (greens, logo) | Their WordPress site is old | Copying the website |
 | **Sign in as any role** (demo) and an "Illustrative data" pill | Their ask: test permissions per role | |
 | **Sessions, like the real app** (SDS: AuthContext + AppSidebar + routeAccess): whoever signs in keeps their own sidebar, name and Dashboard on every screen until they switch; a link never opens another person's own screen or a menu their role lacks | Presenting: the person and the menus changed from screen to screen, and Dashboard from the Country Director's sidebar opened the Procurement Officer's (the user: "confusion for nothing") | Baking each screen with whoever performs that step |
-| **The System Administrator sees every menu; the Auditor all but My approvals; everyone else only theirs**, groups collapsed but visible | SDS: System Admin is unscoped; the user: "system admin has to see all these, other people see only what they're supposed to see" | Admin seeing only Setup and Users |
+| **"Country Director" is a job title, "Executive Approver" the role**: every step, decision and "waiting on" on screen names the role; the job title appears only beside Samuel's name on his dashboard, in the department "Country Director's office", and in the note that the Executive Approver is the Country Director | The user, seeing "With the Country Director" on the applicant's page: "am I still seeing Country Director there, is that correct?" Mixing a person's job and a role is the confusion one-role-per-person removed | Using the job title for approval steps |
+| **The System Administrator sees every menu; the Auditor all but My approvals; everyone else only theirs**, groups collapsed but visible | SDS: System Administrator is unscoped; the user: "system admin has to see all these, other people see only what they're supposed to see" | Admin seeing only Setup and Users |
 
 **Out of scope** (the user: "don't add a lot of unnecessary functionality"): payments, stores / inventory /
 assets, contract management, public tender portal, sealed e-bidding, procurement plan, SMS, AI, mobile app.
@@ -54,12 +55,12 @@ complete and closed this morning; other files are in flight so every action scre
 | File | What | Project | Value (UGX) | Where it is today | Shown on |
 |---|---|---|---|---|---|
 | **PR-2026-0087** | 10 laptops for the second training room | Kasese ICT Hub (KOICA) | 38,000,000 est. · LPO 36,400,000 | Paid (09:38) and closed (09:41) today | The file's 8 tabs: w11 Overview, w11b Approvals, w12c Sourcing, w13d Evaluation, w14b LPO, w15d Delivery, w15c Payment, w11c Documents & history |
-| PR-2026-0096 | Solar backup system | Kasese ICT Hub | 34,500,000 | Awaiting Country Director (step 3 of 3) | Approval decision (w02b) |
+| PR-2026-0096 | Solar backup system | Kasese ICT Hub | 34,500,000 | Awaiting Executive Approver (step 3 of 3) | Approval decision (w02b) |
 | PR-2026-0095 | Hygiene kits for model homes | Model Home Health, Kumi | 3,600,000 | Awaiting the Department Head (step 1 of 2) | Daniel's decision (w03b) |
 | PR-2026-0093 | Network switches and cabling | Teacher ICT Initiative, Kamuli | 14,200,000 | RFQ-2026-0035 open, closes Wed 14 Oct | Busoga Tech quotes in the portal (w72) |
 | PR-2026-0091 | Desks and chairs | Teacher ICT Initiative, Kamuli | 18,600,000 | Approved, waiting for an RFQ | New RFQ (w12b) |
 | PR-2026-0090 | Washroom block, Busalamu P/S | Busalamu School Sanitation, Luuka | 86,000,000 | Committee evaluation | Committee scoring (w13b) |
-| PR-2026-0089 | Printing teacher training manuals | Teacher ICT Initiative, Kamuli | 31,200,000 | Award awaiting the Executive Approver (Country Director) | Award approval (w13c) |
+| PR-2026-0089 | Printing teacher training manuals | Teacher ICT Initiative, Kamuli | 31,200,000 | Award awaiting the Executive Approver | Award approval (w13c) |
 | PR-2026-0084 | Stationery for vocational classes | Women's Vocational Training, Mayuge | 6,800,000 | Delivery arriving today | Goods received (w15b) |
 | PR-2026-0098 | Projector and screen | Kasese ICT Hub | 4,200,000 | Being drafted by Grace | New requisition (w10b) |
 
@@ -69,7 +70,7 @@ complete and closed this morning; other files are in flight so every action scre
    screen reader ready, 3-year warranty) at UGX 3,800,000 = 38,000,000. Line 5210 ICT equipment, Kasese
    field office. Needed by 16 Oct.
 2. 14 Sep 15:40 Daniel Okello (Head of Programmes) approves. 15 Sep 10:05 Ruth Nakato (Finance) confirms
-   funds. 16 Sep 08:47 Samuel Kato (Country Director) approves: above UGX 30M, so step 3 applies.
+   funds. 16 Sep 08:47 Samuel Kato (Executive Approver) approves: above UGX 30M, so step 3 applies.
 3. 17 Sep Joseph Waiswa sends RFQ-2026-0031 to 4 prequalified ICT suppliers, closing 28 Sep 12:00.
 4. Quotes: Busoga Tech Supplies 36,400,000 (10 days, 3-yr warranty); Source Point ICT 35,200,000 (21 days,
    1-yr warranty, **non-compliant**); Kagulu Computers 39,900,000 (7 days, 3-yr). Nile Bridge Systems did
@@ -77,7 +78,7 @@ complete and closed this morning; other files are in flight so every action scre
 5. 30 Sep to 1 Oct the committee (Esther Namutebi, chair; Brian Ouma; Moses Tumusiime) declares no
    conflict and scores (technical 70, financial 30): Busoga Tech 88.4, Kagulu 84.1.
 6. 2 Oct Joseph submits the award recommendation; 5 Oct 09:20 Samuel approves it.
-7. LPO-2026-0051, 36,400,000 to Busoga Tech Supplies: Finance 5 Oct, Country Director 6 Oct, issued 6 Oct
+7. LPO-2026-0051, 36,400,000 to Busoga Tech Supplies: Finance 5 Oct, Executive Approver 6 Oct, issued 6 Oct
    11:30. Deliver to Kasese ICT Hub by 16 Oct.
 8. 9 Oct delivery note DN-4471; Brian Ouma (ICT) and Grace Atim inspect at Kasese: 10 received, 10 accepted.
    Peter Mukasa records GRN-2026-0064.
@@ -85,13 +86,13 @@ complete and closed this morning; other files are in flight so every action scre
    payment reference EFT-STB-26-10-0331 (voucher PV-2026-1184); 09:41 Joseph closes the file.
 
 **Second story:** Mpumudde Furniture Works applies for prequalification in *Furniture* (w70, w70b, w70c); Joseph
-reviews it and recommends; it waits for the Country Director (w21b). Until approved it cannot be invited:
+reviews it and recommends; it waits for the Executive Approver (w21b). Until approved it cannot be invited:
 the New RFQ for desks (w12b) shows it greyed "prequalification pending", and Joseph adds a non-prequalified
 local workshop with a recorded reason to reach 3 quotes.
 
 **Budgets:** FY 2026 budgets are all active (w30). FY 2027 (planning) has two drafts: Model Home Health entered
 line by line (w30c) and Kasese ICT Hub imported from Excel with 3 rows to fix (w30d). A revision to an active
-budget (BR-2026-0007, Kamuli) waits for the Country Director (w31b).
+budget (BR-2026-0007, Kamuli) waits for the Executive Approver (w31b).
 
 ### Cast (illustrative)
 
@@ -177,14 +178,14 @@ Draft ──Submit──▶ Pending approval ──Approve (last step)──▶ 
 - **Maker-checker:** whoever prepared or submitted a record can't approve or reject any of its steps.
 - **Comment required** on Return and Reject.
 - Live records are never edited directly: a change to an active budget is a **revision** (old → new).
-- **Overdue:** a step waiting more than 2 working days reminds its approvers, then the Country Director.
+- **Overdue:** a step waiting more than 2 working days reminds its approvers, then the Executive Approver.
 - **Acting approver:** set on a user while away; their approvals route to that person.
 
 | Record | Maker | Steps (example) |
 |---|---|---|
 | Requisition | Requesting Officer | 1 Department Head · 2 Finance Officer (funds; the proposal's Budget Holder) · 3 Executive Approver, **only ≥ UGX 30M** |
 | Award recommendation | Procurement Officer | 1 Executive Approver |
-| LPO | Procurement Officer | 1 Finance Officer (commitment) · 2 Country Director, **only ≥ UGX 5M** |
+| LPO | Procurement Officer | 1 Finance Officer (commitment) · 2 Executive Approver, **only ≥ UGX 5M** |
 | Budget | Finance Officer | 1 Executive Approver |
 | Budget revision | Finance Officer | 1 Executive Approver |
 | Supplier prequalification | Procurement Officer (recommends) | 1 Executive Approver |
@@ -211,7 +212,7 @@ Side states: Returned · Rejected · Cancelled. Direct purchases skip Evaluation
 
 **The front door.** No hash opens the public Home (w80). Every public page has Sign in; Home, Notices and FAQs lead to Register. Sign in is one page for everyone; the demo "sign in as" lists the 9 staff and the 2 supplier accounts, each landing on their own dashboard (`data.home_key`). Signing out (the red button in any sidebar) returns to Home; clicking the name returns to Sign in to switch accounts.
 
-**Sessions.** A screen is either one person's own (their dashboard, their decisions: `owner`) or shared (lists, the procurement file, setup, reports), drawn as the System Admin sees it. The prototype keeps whoever signed in: on a shared screen it lays that person's own sidebar and name over it (`chrome/`), and it hides any hotspot to another person's own screen or to a menu their role lacks. Menus per role are `PERMS` in `data.py` (System Admin: all 26; Auditor: all but My approvals). A file's tabs belong to the menu that leads to them (Delivery → Deliveries, Evaluation → Evaluations), so Peter can open the GRN from his Deliveries list but not the rest of the file.
+**Sessions.** A screen is either one person's own (their dashboard, their decisions: `owner`) or shared (lists, the procurement file, setup, reports), drawn as the System Administrator sees it. The prototype keeps whoever signed in: on a shared screen it lays that person's own sidebar and name over it (`chrome/`), and it hides any hotspot to another person's own screen or to a menu their role lacks. Menus per role are `PERMS` in `data.py` (System Administrator: all 26; Auditor: all but My approvals). A file's tabs belong to the menu that leads to them (Delivery → Deliveries, Evaluation → Evaluations), so Peter can open the GRN from his Deliveries list but not the rest of the file.
 
 Keys are what hotspots and URLs use (`prototype.html#w11`). The viewer lists the public site first (w80–w83), then w00 onwards. Every list row opens the procurement file; every
 action returns to the file or the list it came from.
@@ -251,7 +252,7 @@ action returns to the file or the list it came from.
 | w12 | RFQs & quotations (RFQ-0031, the laptops, highlighted) | RFQ-0031 → w12c; RFQ-0036 → w12b (Joseph's) |
 | w12b | New RFQ for PR-0091 (Joseph) | Send / Save draft → w12 |
 | w12c | File: Sourcing (quotation comparison) | tabs |
-| w13 | Evaluations: all committees (Procurement, Finance, Country Director, auditor) | PR-0087 → w13d |
+| w13 | Evaluations: all committees (Procurement, Finance, Executive Approver, auditor) | PR-0087 → w13d |
 | w13-esther | My evaluations (Esther, Evaluation Committee Member) | PR-0090 → w13b; PR-0087 → w13d |
 | w13b | Committee scoring PR-0090 (Esther) | Submit / Save → w13 |
 | w13c | Approve award PR-0089 (Samuel) | Approve / Return / Reject → w02 |
@@ -271,7 +272,7 @@ action returns to the file or the list it came from.
 | w21c-samuel | The same page as Samuel sees it: Prequalify / Return / Reject | → w21 |
 | w30 | Budgets FY 2026 | Kasese → w30b; New budget / Import from Excel → w30e; Model Home Health 2027 → w30c; Kasese 2027 → w30d (Ruth's drafts) |
 | w30b | Budget: Kasese ICT Hub FY 2026 | Request revision → w31c; PR-0087 → w11; PR-0098 → w10b |
-| w30e | New budget (page): financial year, project, lines one by one or from Excel (Finance, System Admin) | Save draft / Cancel → w30 |
+| w30e | New budget (page): financial year, project, lines one by one or from Excel (Finance, System Administrator) | Save draft / Cancel → w30 |
 | w30c | Draft budget FY 2027, line by line: Model Home Health | Submit / Save → w30; Import → w30d |
 | w30d | Import budget from Excel: Kasese ICT Hub FY 2027 (3 rows to fix) | Save ready lines → w30 |
 | w31 | Budget revisions | New revision → w31c; BR-0007 → w31d |
@@ -290,18 +291,18 @@ action returns to the file or the list it came from.
 | w60c | Add user (dialog: name, phone, email, department, office, role, first password; email the sign-in details) | Add user / Cancel → w60 |
 | w61 | Roles & permissions (matrix) | |
 | w62 | Approval workflows + methods by value | Requisition → w62b |
-| w62b | Edit workflow: Requisition (threshold 30M → 25M, goes to the Country Director) | Submit / Cancel → w62 |
+| w62b | Edit workflow: Requisition (threshold 30M → 25M, goes to the Executive Approver) | Submit / Cancel → w62 |
 | w63 | Audit trail (Agnes) | BR-0006 → w63b |
 | w63b | Audit entry: budget revision approved (old → new, where from) | close → w63; full history → w31 |
 
 ### Supplier portal (signed in as a supplier; every screen is the company's own)
 
 Menu (`data.SUPPLIER_MENU`): Busoga Tech: Home · WORK RFQs, Purchase orders, Payments · MY COMPANY Company profile,
-Documents. Mpumudde (pending): My application only, until the Country Director prequalifies it (w21b).
+Documents. Mpumudde (pending): My application only, until the Executive Approver prequalifies it (w21b).
 
 | Key | Screen | Links |
 |---|---|---|
-| w70d | My application (Mpumudde): where it is (with the Country Director), documents checked, what opens when prequalified | sidebar; sign out → w80 |
+| w70d | My application (Mpumudde): where it is (with the Executive Approver), documents checked, what opens when prequalified | sidebar; sign out → w80 |
 | w71 | Home (Busoga Tech): renew for 2027, four figures, the open RFQ, latest payment, LPOs | RFQ-0035 → w72; All RFQs → w73; LPO-0051 → w74b; Payments → w75; Renew → w77b |
 | w72 | Submit quotation RFQ-0035 (sealed until 14 Oct) | Submit / Save draft → w73 |
 | w73 | RFQs: 1 open, 7 past (6 quoted, 4 awarded) | RFQ-0035 → w72; RFQ-0031 → w74b |
@@ -347,8 +348,8 @@ counts with Deactivate instead of Delete, Ctrl+K search.
 |---|---|---|
 | Their procurement manual: methods, thresholds, who approves | Approval workflows | Example 5M / 30M thresholds, labelled |
 | Accounting package and chart of accounts | Account codes, the export | Illustrative 5xxx codes; Excel export + payment reference |
-| Is there a Finance Manager separate from the Finance Officer? | Budget approval step | Country Director approves budgets |
+| Is there a Finance Manager separate from the Finance Officer? | Budget approval step | Executive Approver approves budgets |
 | Financial year (Jan–Dec or Jul–Jun) and donor budget periods | Budgets | FY 2026 = Jan to Dec |
 | Who sits on evaluation committees; standing or per procurement? | Committee screens | A role, appointed per procurement |
-| Do they use a Budget Holder or Procurement Manager separate from Finance and the Country Director? | Roles | Folded in (w61 note) |
+| Do they use a Budget Holder or Procurement Manager separate from Finance and the Executive Approver? | Roles | Folded in (w61 note) |
 | A working sandbox (enter data, run approvals) after the mockup? | Their "test data entry" ask | Mockup shows flows; a sandbox needs a build |

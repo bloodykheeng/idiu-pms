@@ -43,6 +43,9 @@ SDS `sdstool-nextjs/app/(main)`, `(auth)/login`, `lib/routeAccess.ts`, `componen
   (`w61`) draws the same matrix, so what the client reads is what the sidebars do.
 - **One role per person**, named as in the client's role table (the proposal's §15). Two people with the same role
   doing different jobs confuses everyone (the user: "isn't this confusion, same role doing two different things").
+- **A job title is not a role.** Steps, decisions and "waiting on" always name the role (Executive Approver); a job title
+  (Country Director) appears only beside the person's name on their own profile or dashboard. (The user: "am I still
+  seeing Country Director there, is that correct?")
 - **The System Administrator sees every menu. The Auditor sees everything but My approvals and fills in nothing.** Everyone else
   sees only their own. (The user: "system admin has to see all these, other people see only what they're supposed to
   see.")
@@ -55,7 +58,7 @@ SDS `sdstool-nextjs/app/(main)`, `(auth)/login`, `lib/routeAccess.ts`, `componen
 | Kind of screen | Built as | In the viewer |
 |---|---|---|
 | **Own** (a dashboard, an inbox, a decision, a draft): `owner=True` | the person it belongs to | opening it signs that person in |
-| **Shared** (lists, the procurement file, setup, reports) | the System Admin (`viewer="ivan"`) | the signed-in person's sidebar and name are laid over it (`chrome/`) |
+| **Shared** (lists, the procurement file, setup, reports) | the System Administrator (`viewer="ivan"`) | the signed-in person's sidebar and name are laid over it (`chrome/`) |
 | **Own copy of a shared record**: `<key>-<person>`, e.g. `w21c-samuel` | that person, with their decision | a link to `<key>` opens their copy (`resolve()`) |
 | **Form** that creates or changes a record: `shell.writes(s, roles)` | shared | opens only for the roles listed; **never the Auditor** |
 | **Supplier portal** page | that company (`owner`) | the company can never change on a click |
@@ -69,7 +72,7 @@ fill in. `check.py` walks every session and fails otherwise. (The user, when the
 |---|---|---|
 | Requisition | any role with Requisitions, except the Auditor | Department Head → Finance Officer → Executive Approver (above the threshold) |
 | Budget, budget revision | Finance Officer, System Administrator | Executive Approver |
-| Award, LPO, prequalification recommendation | Procurement Officer | Country Director (LPO: Finance first) |
+| Award, LPO, prequalification recommendation | Procurement Officer | Executive Approver (LPO: Finance first) |
 | Setup lists, users | System Administrator (Finance: years, account codes; Procurement: categories, document types, units) | none: plain lists |
 
 Whoever prepares a record can't approve any step of it, and a return or reject needs a comment. A live record is
@@ -82,7 +85,7 @@ never edited directly: **an active budget changes by revision** (old → new), a
 - **Everyone has their own** (`w01-<person>`), shaped by their role. It is not one dashboard with things hidden.
 - The top of each is **"Your turn"**: up to three things waiting on that person, each a link to where they act.
 - Four figures, each from a menu that person may open (a figure never links somewhere they can't go).
-- Office roles (Procurement, Finance, Country Director, Admin, Auditor) see the organisation's picture; requesters and
+- Office roles (Procurement, Finance, Executive Approver, Admin, Auditor) see the organisation's picture; requesters and
   stores see their own rows.
 - A supplier's dashboard is their portal Home: open RFQs, orders, the latest payment, documents to renew.
 
