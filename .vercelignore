@@ -1,0 +1,7 @@
+# Internal working files: kept in git, never deployed to the public mockup
+.claude
+_src
+_previews
+PLAN.md
+README.md
+PATTERNS.md
