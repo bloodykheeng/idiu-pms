@@ -240,9 +240,11 @@ action returns to the file or the list it came from.
 | w02b | Approve requisition PR-0096, step 3 of 3 (Samuel) | Approve / Return / Reject → w02 |
 | w03 | My approvals (Daniel, Department Head) | PR-0095 (Harriet's) → w03b |
 | w03b | Approve requisition PR-0095, step 1 of 2 (Daniel) | Approve / Return / Reject → w03 |
-| w10 | Requisitions (page 1 of 98) | New requisition → w10c; PR-0087 → w11; PR-0098 → w10b (Grace's); PR-0091 → w12b (Joseph's) |
+| w10 | Requisitions (page 1 of 98) | New requisition → w10c; PR-0087 → w11; PR-0096 → w10d; PR-0095 → w10e; PR-0098 → w10b (Grace's); PR-0091 → w12b (Joseph's) |
 | w10b | Grace's draft requisition PR-0098 (from her dashboard) | Submit / Save draft → w10 |
 | w10c | New requisition, blank, for whoever is signed in (not the Auditor) | Submit / Save draft / Cancel → w10 |
+| w10d, w10d-samuel | Requisition PR-0096 page under Requisitions: read only with "Waiting on Samuel Kato"; Samuel decides on his copy | from w10, Grace's dashboard, Daniel's recently decided; → w10 |
+| w10e, w10e-daniel | Requisition PR-0095 page under Requisitions; Daniel decides on his copy | from w10; → w10 |
 | w11 | File PR-0087: Overview | tabs; budget line → w30b |
 | w11b | File: Approvals (requisition, award, LPO steps) | tabs |
 | w11c | File: Documents & history | tabs; full audit trail → w63 |
@@ -254,6 +256,7 @@ action returns to the file or the list it came from.
 | w13b | Committee scoring PR-0090 (Esther) | Submit / Save → w13 |
 | w13c | Approve award PR-0089 (Samuel) | Approve / Return / Reject → w02 |
 | w13d | File: Evaluation | tabs |
+| w13e, w13e-samuel | Award PR-0089 page under Evaluations: report, recommendation, timeline; Samuel decides on his copy | from w13, w13-esther, w12 (RFQ-0032), Esther's dashboard; → w13 |
 | w14 | Purchase orders | LPO-0051 → w14b |
 | w14b | File: LPO-2026-0051 document | tabs |
 | w15 | Deliveries (LPO-0051 highlighted) | LPO-0051 → w15d; LPO-0049 → w15b (Peter's) |

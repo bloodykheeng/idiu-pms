@@ -114,7 +114,8 @@ Rules for dialogs and drawers:
 - **One record per real thing**: a purchase is one procurement file; every list (Requisitions, RFQs, Evaluations,
   LPOs, Deliveries) opens that file at the right tab, never a disconnected page.
 - **A record opened from a list stays in that list's menu**, and the approver decides there as well as from My
-  approvals. Build the page once (`_application_page`, `_revision_page`) and call it three ways: from the inbox
+  approvals. Build the page once (`_application_page`, `_revision_page`, `_requisition_decision`, `_award_page`) and
+  call it three ways: from the inbox
   (approver), from the list (everyone, read only), and the approver's own copy from the list. (The user: "it takes me
   back up to approvals… I can approve under the approvals or even under the supplier themselves." Alpha's
   `RecordDetailsDialog` + `ApprovalActionBar` give the idea: details, timeline, and the action for whoever's turn it

@@ -10,7 +10,7 @@ close-out.
 - **How a system is linked, and which pattern goes where:** [`PATTERNS.md`](PATTERNS.md): the front door, roles and
   sessions, dashboards, page vs dialog vs drawer, approvals in place, buttons and highlights. Read it before adding a screen.
 - **One system, one front door:** a public site (Home · About · FAQs · Notices) → one Sign in for staff and suppliers (Register, Forgot password) → a dashboard chosen by who signed in: the staff console, the supplier portal, or an applicant's application status.
-- **98 screens**, web only, 1920×1080: 4 public pages, sign in and forgot password, 3 registration steps, 79 in the staff console (9 personal dashboards, 2 approver's own copies of a record page) and 10 in the supplier portal; each in light and dark, plus 108 per-person sidebars.
+- **104 screens**, web only, 1920×1080: 4 public pages, sign in and forgot password, 3 registration steps, 85 in the staff console (9 personal dashboards, 5 approver's own copies of a record page) and 10 in the supplier portal; each in light and dark, plus 108 per-person sidebars.
 - **Web only**, 1920×1080, light and dark mode. All names, figures, suppliers and IDs are **illustrative**;
   IDIU's name, logo, offices, projects and donors are real. Thresholds are examples until IDIU shares its
   procurement manual.
