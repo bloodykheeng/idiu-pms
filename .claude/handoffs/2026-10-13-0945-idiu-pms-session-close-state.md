@@ -16,7 +16,7 @@ read the notes listed under "The trail". Then read `PATTERNS.md`, `PLAN.md` and 
 
 ## Status
 **Done. Everything is committed and pushed; `main` matches GitHub with nothing uncommitted.**
-- 104 screens (light and dark) and 104 per-person sidebars.
+- 104 screens (light and dark) and 106 per-person sidebars.
 - `check.py` and `smoke.py` pass (13 walks, plus door, forms, modal, full-screen and dark checks).
 
 ## What the mockup is now
