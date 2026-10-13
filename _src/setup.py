@@ -53,7 +53,7 @@ def w50_financial_years():
 
 
 def w50b_new_financial_year():
-    s = writes(w50_financial_years(), ["Finance Officer", "System Admin"])
+    s = writes(w50_financial_years(), ["Finance Officer", "System Administrator"])
     s.title = "50b Setup: New financial year"
     x, y = dialog(s, 640, 560, "New financial year", "Budgets can be drafted for it straight away.", close_target="w50")
     w = 576

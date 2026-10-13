@@ -358,7 +358,7 @@ def w31b_revision_approval():
 
 
 # ---------------------------------------------------------------- making and changing budgets
-FINANCE = ["Finance Officer", "System Admin"]   # who prepares budgets and revisions (the maker); the CD approves
+FINANCE = ["Finance Officer", "System Administrator"]   # who prepares budgets and revisions (the maker); the CD approves
 
 
 def w30e_new_budget():

@@ -3,7 +3,7 @@
 w01-<person>  each person's own dashboard: what is waiting on them, figures from what their role can open
 w02  my approvals (Samuel, Country Director) → w02b approve requisition PR-2026-0096
 w02-ruth, w02-ivan  my approvals with nothing waiting
-w03  my approvals (Daniel, Head of Department) → w03b approve requisition PR-2026-0095 (step 1 of 2)
+w03  my approvals (Daniel, Department Head) → w03b approve requisition PR-2026-0095 (step 1 of 2)
 """
 from __future__ import annotations
 
@@ -44,9 +44,9 @@ STATS = {
               ("clock", AMBER_D, "Waiting longest", "1 day", "PR-2026-0096 with Samuel Kato", None),
               ("x", RED, "Rejected this year", "1", "PR-2026-0077 · covered by KOICA", None)],
     "esther": [("scale", VIOLET, "To score", "1", "PR-2026-0090 · due tomorrow", "w13-esther"),
-               ("clipboard", BLUE, "My requisitions", "7 open", [("1", ORANGE), (" returned to you", MUTED)], "w10"),
                ("award", BRAND_M, "Evaluations this year", "4", "Chair of 2", "w13-esther"),
-               ("truck", TEAL, "Deliveries for you", "1", "Stationery arriving in Mayuge today", "w15")],
+               ("shield", BRAND, "Declarations signed", "4", "No conflict of interest declared", "w13-esther"),
+               ("clock", AMBER_D, "Time to score", "2.5 days", "on average, from bids opened", None)],
     "peter": [("truck", AMBER_D, "Due today", "1", "LPO-2026-0049 · Mayuge", "w15"),
               ("package", TEAL, "Expected this week", "2", "Stationery · hygiene kits", "w15"),
               ("receipt", BRAND, "LPOs this month", "6", "4 delivered · 2 to come", "w14"),
@@ -150,8 +150,22 @@ def _office_panels(s, person, y):
 
 
 def _personal_rows(s, person, y):
-    """Requesters and stores see their own rows, not the organisation's figures."""
-    if person == "peter":
+    """Requesting officers, committee members and stores see their own rows, not the organisation's figures."""
+    if person == "esther":
+        title, sub = "My evaluations", "the committees you are appointed to, and where each one is"
+        evals = [("PR-2026-0090", "Washroom block, Busalamu P/S", "Chair", "To score", "Due tomorrow", "w13b"),
+                 ("PR-2026-0089", "Printing teacher training manuals", "Member", "Scored", "Award with the Executive Approver",
+                  None),
+                 ("PR-2026-0087", "10 laptops for training room 2", "Chair", "Scored", "Awarded to Busoga Tech", "w13d"),
+                 ("PR-2026-0079", "Office chairs, Jinja head office", "Member", "Scored", "Awarded to Iganga Office Furnishers",
+                  None)]
+        rows = [[c_ref(no, what), c_chip(part, VIOLET if part == "Chair" else TEAL), c_status(st),
+                 c_text(where, AMBER_D if st == "To score" else INK2, 700 if st == "To score" else 400)]
+                for no, what, part, st, where, _ in evals]
+        links = [e[5] for e in evals]
+        cols = [("Procurement", 560, "start"), ("Your part", 200, "start"), ("Your scores", 260, "start"),
+                ("Where it is", 544, "start")]
+    elif person == "peter":
         title, sub = "Deliveries", "expected and received against issued LPOs"
         rows, links = [], []
         for no, file, sup, to, due, grn, st, tgt in DELIVERIES:
@@ -296,13 +310,13 @@ def w02b_approve_requisition():
 
 
 def w03_hod_approvals():
-    s = console("03 My approvals (Head of Department)", "My approvals", ["My approvals"], "daniel", owner=True)
+    s = console("03 My approvals (Department Head)", "My approvals", ["My approvals"], "daniel", owner=True)
     y = page_head(s, "My approvals", "Requisitions from Programmes come to you first (step 1).")
-    note(s, X0, y, CW, "You're away 19–30 Oct: Esther Namutebi approves for you then (set by Ivan Ssemanda in Users).",
+    note(s, X0, y, CW, "You're away 19–30 Oct: Rebecca Achan (Department Head, Administration) approves for you then, set by Ivan Ssemanda in Users.",
          icon="calendar")
     y += 64
     rows = [[c_chip("Requisition", BLUE), c_ref("PR-2026-0095", "Hygiene kits for model homes · Model Home Health, Kumi"),
-             c_money(3_600_000), c_text("Department review · 1 of 2", INK2), c_person("esther"), _waiting("4 h")]]
+             c_money(3_600_000), c_text("Department review · 1 of 2", INK2), c_person("harriet"), _waiting("4 h")]]
     cols = [("Type", 200, "start"), ("What", 480, "start"), ("Value (UGX)", 160, "end"), ("Step", 270, "start"),
             ("Prepared by", 230, "start"), ("Waiting", 172, "start")]
     list_card(s, y, 58 + 44 + 70 + 20)
@@ -330,10 +344,10 @@ def w03b_hod_decision():
               "120 Kits", 30_000, 3_600_000,
               "For the November household visits in Kumi: one kit per model home enrolled this quarter.")]
     return _requisition_decision(
-        "w03b", "03b Approve requisition PR-2026-0095 (Head of Department)", "daniel", "PR-2026-0095",
+        "w03b", "03b Approve requisition PR-2026-0095 (Department Head)", "daniel", "PR-2026-0095",
         "Hygiene kits for model homes", items, ("KFHI", BRAND_M, "Today 05:40", "Direct purchase (up to UGX 5M)"),
-        "5610 Health supplies · Model Home Health, Kumi", "esther",
-        [("Department review", "Daniel Okello · Head of Programmes", "now"),
+        "5610 Health supplies · Model Home Health, Kumi", "harriet",
+        [("Department review", "Daniel Okello · Department Head", "now"),
          ("Funds check", "Ruth Nakato · Finance Officer", "next"),
          ("Executive approval", "Only above UGX 30M · not needed", "skipped")],
         "Write a comment (required to return or reject)", "4 hours", (26_000_000, 15_400_000, 10_600_000, 3_600_000),
@@ -349,7 +363,7 @@ OWN_DECIDED = {
     "ivan": [],
 }
 EMPTY_NOTE = {
-    "ruth": "Funds checks come to you after the Head of Department; LPO commitment checks after Procurement prepares one.",
+    "ruth": "Funds checks come to you after the Department Head; LPO commitment checks after Procurement prepares one.",
     "ivan": "Changes you submit to approval workflows go to the Country Director; you can't approve your own.",
 }
 

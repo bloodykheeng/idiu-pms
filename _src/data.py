@@ -16,17 +16,18 @@ FY = "FY 2026"
 # ---------------------------------------------------------------- people
 # key: (name, initials, role, department, office, avatar colour)
 PEOPLE = {
-    "grace": ("Grace Atim", "GA", "Requester", "Programmes", "Kasese", VIOLET),
-    "daniel": ("Daniel Okello", "DO", "Head of Department", "Programmes", "Jinja HQ", BLUE),
+    "grace": ("Grace Atim", "GA", "Requesting Officer", "Programmes", "Kasese", VIOLET),
+    "harriet": ("Harriet Kyomuhendo", "HK", "Requesting Officer", "Programmes", "Jinja HQ", BRAND_M),
+    "daniel": ("Daniel Okello", "DO", "Department Head", "Programmes", "Jinja HQ", BLUE),
     "ruth": ("Ruth Nakato", "RN", "Finance Officer", "Finance", "Jinja HQ", TEAL),
     "joseph": ("Joseph Waiswa", "JW", "Procurement Officer", "Procurement & Logistics", "Jinja HQ", BRAND),
-    "samuel": ("Samuel Kato", "SK", "Country Director", "Country Director's office", "Jinja HQ", AMBER_D),
-    # committee members keep their own role; committee work is an appointment per procurement
-    "esther": ("Esther Namutebi", "EN", "Requester", "Programmes", "Jinja HQ", ORANGE),
-    "brian": ("Brian Ouma", "BO", "Requester", "ICT", "Jinja HQ", KOICA),
-    "moses": ("Moses Tumusiime", "MT", "Requester", "Finance", "Jinja HQ", TEAL),
-    "peter": ("Peter Mukasa", "PM", "Stores / Inspection Officer", "Administration", "Jinja HQ", INK2),
-    "ivan": ("Ivan Ssemanda", "IS", "System Admin", "ICT", "Jinja HQ", BLUE),
+    "samuel": ("Samuel Kato", "SK", "Executive Approver", "Country Director's office", "Jinja HQ", AMBER_D),
+    # the committee is a role of its own (proposal §15), given by appointment per procurement with a declaration (§7)
+    "esther": ("Esther Namutebi", "EN", "Evaluation Committee Member", "Programmes", "Jinja HQ", ORANGE),
+    "brian": ("Brian Ouma", "BO", "Evaluation Committee Member", "ICT", "Jinja HQ", KOICA),
+    "moses": ("Moses Tumusiime", "MT", "Evaluation Committee Member", "Finance", "Jinja HQ", TEAL),
+    "peter": ("Peter Mukasa", "PM", "Inspection Officer", "Administration", "Jinja HQ", INK2),
+    "ivan": ("Ivan Ssemanda", "IS", "System Administrator", "ICT", "Jinja HQ", BLUE),
     "agnes": ("Agnes Akello", "AA", "Auditor", "Internal Audit", "Jinja HQ", RED),
 }
 
@@ -38,6 +39,7 @@ def person(key):
 # Role titles shown under a name (a role can differ from the job title)
 JOB = {
     "grace": "Programme Officer · Kasese ICT Hub",
+    "harriet": "Programme Officer · field projects",
     "daniel": "Head of Programmes",
     "ruth": "Finance Officer",
     "joseph": "Procurement Officer",
@@ -51,17 +53,21 @@ JOB = {
 }
 
 # ---------------------------------------------------------------- roles and the sidebar each one sees
+# One role per person, named as in the proposal's role table (§15). The proposal's Budget Holder (funds check) is done by
+# the Finance Officer and its Procurement Manager (oversight) by the Executive Approver until IDIU's manual says otherwise.
 ROLES = [
-    ("Requester", "Raise requisitions and follow them", 14),
-    ("Head of Department", "First approval of their department's requisitions", 6),
+    ("Requesting Officer", "Raise requisitions and follow them", 16),
+    ("Department Head", "First approval of their department's requisitions", 6),
     ("Finance Officer", "Budgets, funds checks, payment references", 2),
     ("Procurement Officer", "Suppliers, RFQs, comparison, awards, LPOs, close-out", 2),
-    ("Evaluation Committee Member", "Appointed per procurement, on top of a user's role", 9),
-    ("Country Director", "High-value and final approvals", 1),
-    ("Stores / Inspection Officer", "Goods received and inspection", 2),
-    ("System Admin", "Setup lists, users, roles, approval workflows", 1),
+    ("Evaluation Committee Member", "Scores the evaluations they are appointed to, after a declaration", 3),
+    ("Executive Approver", "High-value and final approvals (the Country Director)", 1),
+    ("Inspection Officer", "Goods received and inspection", 2),
+    ("System Administrator", "Setup lists, users, roles, approval workflows", 1),
     ("Auditor", "Read everything, change nothing", 1),
 ]
+# where a full role name is too long (the sidebar's user card, the sign-in cards)
+ROLE_SHORT = {"Evaluation Committee Member": "Evaluation Committee"}
 
 # Menu entries per role: like SDS's routeAccess.ts, the one list the sidebar is drawn from (and w61 shows).
 # Every menu entry, in sidebar order. System Admin sees all of them; the Auditor all but My approvals.
@@ -72,30 +78,26 @@ MENU = ["Dashboard", "My approvals", *_PROCUREMENT, "Supplier register", "Applic
         "Procurement register", "Budget utilisation", *_ALL_SETUP, "Users", "Roles & permissions",
         "Approval workflows", "Audit trail"]
 PERMS = {
-    "Requester": ["Dashboard", "Requisitions", "Evaluations", "Deliveries"],   # Evaluations: only if appointed
-    "Head of Department": ["Dashboard", "My approvals", "Requisitions", "Budgets", "Budget utilisation"],
+    "Requesting Officer": ["Dashboard", "Requisitions", "Deliveries"],
+    "Department Head": ["Dashboard", "My approvals", "Requisitions", "Budgets", "Budget utilisation"],
     "Finance Officer": ["Dashboard", "My approvals", *_PROCUREMENT, "Budgets", "Budget revisions",
                         "Procurement register", "Budget utilisation", "Financial years", "Account codes"],
     "Procurement Officer": ["Dashboard", *_PROCUREMENT, "Supplier register", "Applications", "Budgets",
                             "Procurement register", "Budget utilisation", "Procurement categories",
                             "Supplier document types", "Units of measure"],
     "Evaluation Committee Member": ["Dashboard", "Evaluations"],
-    "Country Director": ["Dashboard", "My approvals", *_PROCUREMENT, "Supplier register", "Applications",
+    "Executive Approver": ["Dashboard", "My approvals", *_PROCUREMENT, "Supplier register", "Applications",
                          "Budgets", "Budget revisions", "Procurement register", "Budget utilisation",
                          "Approval workflows", "Audit trail"],
-    "Stores / Inspection Officer": ["Dashboard", "Purchase orders", "Deliveries"],
-    "System Admin": list(MENU),
+    "Inspection Officer": ["Dashboard", "Purchase orders", "Deliveries"],
+    "System Administrator": list(MENU),
     "Auditor": [m for m in MENU if m != "My approvals"],
 }
 PERMS = {role: [m for m in MENU if m in labels] for role, labels in PERMS.items()}   # always in sidebar order
 
-APPOINTED = {"esther", "brian", "moses"}   # appointed to evaluation committees this year
-
-
 def menu_for(person):
-    """The sidebar entries one person sees: their role's list, Evaluations only if they are appointed."""
-    role = PEOPLE[person][2]
-    return [m for m in PERMS[role] if not (m == "Evaluations" and role == "Requester" and person not in APPOINTED)]
+    """The sidebar entries one person sees: their role's list (one role per person)."""
+    return list(PERMS[PEOPLE[person][2]])
 
 
 # Everyone who can sign in to the console, and the screens that are theirs alone
@@ -153,7 +155,7 @@ YOUR_TURN = {
                ("award", "Approve an award", "PR-2026-0089", "Printing manuals · Jinja Print & Pack · 2 days", "w13c"),
                ("swap", "Approve a budget revision", "BR-2026-0007", "Kamuli · move UGX 9M to furniture", "w31b")],
     "daniel": [("clipboard", "Approve a requisition", "PR-2026-0095", "Hygiene kits · UGX 3.6M · step 1 of 2", "w03b"),
-               ("calendar", "Away 19–30 Oct", "Acting approver", "Esther Namutebi approves for you", None),
+               ("calendar", "Away 19–30 Oct", "Acting approver", "Rebecca Achan approves for you", None),
                ("gauge", "Programmes budgets", "FY 2026", "4 projects · 61% used with 12 weeks to go", "w41")],
     "ruth": [("edit", "Finish a draft budget", "BUD-2027-002", "Model Home Health · 1 line left to add", "w30c"),
              ("sheet", "Fix an import", "BUD-2027-001", "Kasese ICT Hub FY 2027 · 3 rows to fix", "w30d"),
@@ -162,8 +164,9 @@ YOUR_TURN = {
               ("clock", "With the Country Director", "PR-2026-0096", "Solar backup system · step 3 of 3", "w10"),
               ("check", "Delivered and paid", "PR-2026-0087", "10 laptops · file closed today", "w11")],
     "esther": [("scale", "Score an evaluation", "PR-2026-0090", "Washroom block · due tomorrow · you chair", "w13b"),
-               ("undo", "Returned to you", "PR-2026-0094", "Salon and sewing kits · Finance asked for quotes", "w10"),
-               ("clock", "With your Head of Department", "PR-2026-0095", "Hygiene kits · step 1 of 2", "w10")],
+               ("clock", "With the Executive Approver", "PR-2026-0089", "Printing manuals · your committee's recommendation",
+                "w13-esther"),
+               ("check", "Evaluation closed", "PR-2026-0087", "10 laptops · awarded to Busoga Tech and paid", "w13d")],
     "peter": [("truck", "Delivery due today", "LPO-2026-0049", "Stationery · Main Street Stationers · Mayuge", "w15b"),
               ("package", "Delivery due Thursday", "LPO-2026-0045", "Hygiene kits batch 1 · Kumi", "w15"),
               ("receipt", "LPOs issued this month", "6 LPOs", "UGX 74.9M · 2 still to deliver", "w14")],
@@ -186,7 +189,7 @@ DEPARTMENTS = [
     ("PRG", "Programmes", "Daniel Okello", 21, 96, "Active"),
     ("FIN", "Finance", "Ruth Nakato", 3, 4, "Active"),
     ("PRC", "Procurement & Logistics", "Joseph Waiswa", 2, 2, "Active"),
-    ("ADM", "Administration", "Peter Mukasa", 4, 11, "Active"),
+    ("ADM", "Administration", "Rebecca Achan", 4, 11, "Active"),
     ("ICT", "ICT", "Brian Ouma", 2, 6, "Active"),
     ("CDO", "Country Director's office", "Samuel Kato", 2, 1, "Active"),
     ("AUD", "Internal Audit", "Agnes Akello", 1, 0, "Active"),
@@ -271,14 +274,14 @@ UNITS = [
 # ---------------------------------------------------------------- approval workflows (PLAN.md §5)
 # record type: [(step name, role, only above UGX or None)]
 WORKFLOWS = {
-    "Requisition": [("Department review", "Head of Department", None), ("Funds check", "Finance Officer", None),
-                    ("Executive approval", "Country Director", 30_000_000)],
-    "Award recommendation": [("Award approval", "Country Director", None)],
-    "LPO": [("Commitment check", "Finance Officer", None), ("Signature", "Country Director", 5_000_000)],
-    "Budget": [("Budget approval", "Country Director", None)],
-    "Budget revision": [("Revision approval", "Country Director", None)],
-    "Supplier prequalification": [("Prequalification decision", "Country Director", None)],
-    "Approval workflow change": [("Change approval", "Country Director", None)],
+    "Requisition": [("Department review", "Department Head", None), ("Funds check", "Finance Officer", None),
+                    ("Executive approval", "Executive Approver", 30_000_000)],
+    "Award recommendation": [("Award approval", "Executive Approver", None)],
+    "LPO": [("Commitment check", "Finance Officer", None), ("Signature", "Executive Approver", 5_000_000)],
+    "Budget": [("Budget approval", "Executive Approver", None)],
+    "Budget revision": [("Revision approval", "Executive Approver", None)],
+    "Supplier prequalification": [("Prequalification decision", "Executive Approver", None)],
+    "Approval workflow change": [("Change approval", "Executive Approver", None)],
 }
 # value up to, method, quotes, evaluation
 METHODS = [
@@ -371,21 +374,21 @@ FILES = [
      "Requested", "Draft", "Grace Atim", "today", "Direct purchase"),
     ("PR-2026-0096", "Solar backup system", "KSE-ICT", "KSE", "5230", "grace", 34_500_000, "Requested",
      "Awaiting approval", "Samuel Kato (3 of 3)", "1 day", "RFQ + committee"),
-    ("PR-2026-0095", "Hygiene kits for model homes", "KUM-MHH", "KUM", "5610", "esther", 3_600_000, "Requested",
+    ("PR-2026-0095", "Hygiene kits for model homes", "KUM-MHH", "KUM", "5610", "harriet", 3_600_000, "Requested",
      "Awaiting approval", "Daniel Okello (1 of 2)", "4 h", "Direct purchase"),
-    ("PR-2026-0094", "Salon and sewing starter kits", "MAY-VOC", "MAY", "5410", "esther", 12_800_000, "Requested",
-     "Returned", "Esther Namutebi", "2 days", "Request for quotations"),
-    ("PR-2026-0091", "Desks and chairs, Kamuli ICT centre", "KML-TICT", "KML", "5220", "esther", 18_600_000,
+    ("PR-2026-0094", "Salon and sewing starter kits", "MAY-VOC", "MAY", "5410", "harriet", 12_800_000, "Requested",
+     "Returned", "Harriet Kyomuhendo", "2 days", "Request for quotations"),
+    ("PR-2026-0091", "Desks and chairs, Kamuli ICT centre", "KML-TICT", "KML", "5220", "harriet", 18_600_000,
      "Sourcing", "Approved", "Joseph Waiswa (RFQ)", "3 days", "Request for quotations"),
-    ("PR-2026-0090", "Washroom block, Busalamu P/S", "LUU-WASH", "LUU", "5310", "esther", 86_000_000,
+    ("PR-2026-0090", "Washroom block, Busalamu P/S", "LUU-WASH", "LUU", "5310", "harriet", 86_000_000,
      "Evaluation", "Evaluation", "Committee (2 of 3 scored)", "4 days", "RFQ + committee"),
-    ("PR-2026-0089", "Printing teacher training manuals", "KML-TICT", "KML", "5120", "esther", 31_200_000,
+    ("PR-2026-0089", "Printing teacher training manuals", "KML-TICT", "KML", "5120", "harriet", 31_200_000,
      "Award", "Award", "Samuel Kato", "2 days", "RFQ + committee"),
-    ("PR-2026-0093", "Network switches and cabling", "KML-TICT", "KML", "5210", "esther", 14_200_000,
+    ("PR-2026-0093", "Network switches and cabling", "KML-TICT", "KML", "5210", "harriet", 14_200_000,
      "Sourcing", "Sourcing", "Suppliers (RFQ closes Wed)", "5 days", "Request for quotations"),
     ("PR-2026-0087", "10 laptops for training room 2", "KSE-ICT", "KSE", "5210", "grace", 38_000_000,
      "Closed", "Closed", "—", "today", "RFQ + committee"),
-    ("PR-2026-0084", "Stationery for vocational classes", "MAY-VOC", "MAY", "5110", "esther", 6_800_000,
+    ("PR-2026-0084", "Stationery for vocational classes", "MAY-VOC", "MAY", "5110", "harriet", 6_800_000,
      "Delivered", "LPO issued", "Peter Mukasa (delivery today)", "today", "Request for quotations"),
     ("PR-2026-0082", "Motorcycle tyres and service", "HQ-OPS", "JIN", "5510", "peter", 2_450_000, "Closed",
      "Closed", "—", "30 Sep", "Direct purchase"),
@@ -524,15 +527,15 @@ INBOX = [
 # ---------------------------------------------------------------- users
 # key or None, name, email, role, department, office, status, last seen
 USERS = [
-    ("daniel", "Daniel Okello", "d.okello@idiu.org", "Head of Department", "Programmes", "Jinja HQ", "Active", "Today 08:12"),
-    ("grace", "Grace Atim", "g.atim@idiu.org", "Requester", "Programmes", "Kasese", "Active", "Today 09:31"),
+    ("daniel", "Daniel Okello", "d.okello@idiu.org", "Department Head", "Programmes", "Jinja HQ", "Active", "Today 08:12"),
+    ("grace", "Grace Atim", "g.atim@idiu.org", "Requesting Officer", "Programmes", "Kasese", "Active", "Today 09:31"),
     ("ruth", "Ruth Nakato", "r.nakato@idiu.org", "Finance Officer", "Finance", "Jinja HQ", "Active", "Today 09:02"),
     ("joseph", "Joseph Waiswa", "j.waiswa@idiu.org", "Procurement Officer", "Procurement & Logistics", "Jinja HQ", "Active", "Today 09:40"),
-    ("samuel", "Samuel Kato", "s.kato@idiu.org", "Country Director", "Country Director's office", "Jinja HQ", "Active", "Today 07:55"),
-    ("esther", "Esther Namutebi", "e.namutebi@idiu.org", "Requester", "Programmes", "Jinja HQ", "Active", "Today 09:18"),
-    ("peter", "Peter Mukasa", "p.mukasa@idiu.org", "Stores / Inspection Officer", "Administration", "Jinja HQ", "Active", "Today 08:47"),
-    ("brian", "Brian Ouma", "b.ouma@idiu.org", "Requester", "ICT", "Jinja HQ", "Active", "Yesterday"),
-    ("ivan", "Ivan Ssemanda", "i.ssemanda@idiu.org", "System Admin", "ICT", "Jinja HQ", "Active", "Today 09:36"),
+    ("samuel", "Samuel Kato", "s.kato@idiu.org", "Executive Approver", "Country Director's office", "Jinja HQ", "Active", "Today 07:55"),
+    ("esther", "Esther Namutebi", "e.namutebi@idiu.org", "Evaluation Committee Member", "Programmes", "Jinja HQ", "Active", "Today 09:18"),
+    ("peter", "Peter Mukasa", "p.mukasa@idiu.org", "Inspection Officer", "Administration", "Jinja HQ", "Active", "Today 08:47"),
+    ("harriet", "Harriet Kyomuhendo", "h.kyomuhendo@idiu.org", "Requesting Officer", "Programmes", "Jinja HQ", "Active", "Today 09:05"),
+    ("ivan", "Ivan Ssemanda", "i.ssemanda@idiu.org", "System Administrator", "ICT", "Jinja HQ", "Active", "Today 09:36"),
     ("agnes", "Agnes Akello", "a.akello@idiu.org", "Auditor", "Internal Audit", "Jinja HQ", "Active", "Fri 9 Oct"),
 ]
 USER_COUNT = 34
@@ -546,7 +549,7 @@ AUDIT = [
     ("Evaluation scores submitted", "Evaluation", "PR-2026-0090: Brian Ouma scored 3 bids", "brian", "11 Oct 2026, 16:20", "Yesterday", "Success"),
     ("Budget revision submitted", "Budget", "BR-2026-0007: Teacher ICT Initiative, Kamuli", "ruth", "9 Oct 2026, 16:12", "3 days ago", "Success"),
     ("Goods received note recorded", "Delivery", "GRN-2026-0064 against LPO-2026-0051: 10 of 10 accepted", "peter", "9 Oct 2026, 14:42", "3 days ago", "Success"),
-    ("User updated", "Users", "Daniel Okello: acting approver set to Esther Namutebi (19–30 Oct)", "ivan", "8 Oct 2026, 11:05", "4 days ago", "Success"),
+    ("User updated", "Users", "Daniel Okello: acting approver set to Rebecca Achan (19–30 Oct)", "ivan", "8 Oct 2026, 11:05", "4 days ago", "Success"),
     ("LPO issued", "Purchase order", "LPO-2026-0051 to Busoga Tech Supplies Ltd, UGX 36,400,000", "joseph", "6 Oct 2026, 11:30", "6 days ago", "Success"),
     ("Award approved", "Evaluation", "PR-2026-0087: Busoga Tech Supplies Ltd recommended", "samuel", "5 Oct 2026, 09:20", "7 days ago", "Success"),
     ("Budget revision approved", "Budget", "BR-2026-0006: Head office operations", "samuel", "22 Sep 2026, 10:14", "3 weeks ago", "Success"),

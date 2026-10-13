@@ -12,8 +12,8 @@ from kit import (AMBER_D, BLUE, BRAND, BRAND_D, BRAND_M, CARD, FAINT, FIELD_BG, 
 from shell import (dialog, writes, CW, X0, X1, c_chip, c_person, c_status, c_text, c_two, console, data_table, drawer, list_card, note,
                    page_head, pager, tabs, toolbar)
 
-ROLE_COLOUR = {"Requester": VIOLET, "Head of Department": BLUE, "Finance Officer": TEAL, "Procurement Officer": BRAND,
-               "Country Director": AMBER_D, "Stores / Inspection Officer": INK2, "System Admin": BLUE, "Auditor": RED,
+ROLE_COLOUR = {"Requesting Officer": VIOLET, "Department Head": BLUE, "Finance Officer": TEAL, "Procurement Officer": BRAND,
+               "Executive Approver": AMBER_D, "Inspection Officer": INK2, "System Administrator": BLUE, "Auditor": RED,
                "Evaluation Committee Member": ORANGE}
 
 
@@ -38,7 +38,7 @@ def w60_users(title="60 Users"):
 
 def w60b_edit_user():
     s = writes(console("60b Edit user: Daniel Okello", "Users", ["Administration", "Users", "Daniel Okello"], "ivan"),
-               ["System Admin"])
+               ["System Administrator"])
     y = page_head(s, "Daniel Okello", "d.okello@idiu.org · Head of Programmes · last seen today 08:12",
                   actions=[("Save changes", "primary", "check", "w60"), ("Cancel", "secondary", None, "w60")])
     lw = 1000
@@ -55,28 +55,24 @@ def w60b_edit_user():
     s.line(X0, y + 262, X0 + lw, y + 262, LINE2)
     s.text(x, y + 300, "Role", 17, 700, INK)
     s.text(x + 56, y + 300, "one per user; it decides the menus and the approval steps", 13, 400, MUTED)
-    roles = ["Requester", "Head of Department", "Finance Officer", "Procurement Officer", "Country Director",
-             "Stores / Inspection Officer", "System Admin", "Auditor"]
+    roles = [r[0] for r in ROLES]
     rw2 = (w - 24) / 2
     for i, r in enumerate(roles):
         rx_ = x + (i % 2) * (rw2 + 24)
         ry = y + 322 + (i // 2) * 50
-        on = r == "Head of Department"
+        on = r == "Department Head"
         s.rect(rx_, ry, rw2, 42, fill=tint(LIME, 0.5) if on else CARD, rx=10, stroke=BRAND if on else LINE)
         radio(s, rx_ + 22, ry + 21, on)
         s.text(rx_ + 42, ry + 26, r, 14, 700 if on else 500, INK)
-    s.rect(x, y + 532, w, 44, fill=FIELD_BG, rx=10)
-    toggle(s, x + 14, y + 544, True)
-    s.text(x + 62, y + 559, "Can be appointed to evaluation committees", 14, 600, INK)
     s.line(X0, y + 600, X0 + lw, y + 600, LINE2)
     s.text(x, y + 638, "Away and acting approver", 17, 700, INK)
     toggle(s, x + w - 36, y + 624, True)
     tw3 = (w - 48) / 3
     field(s, x, y + 656, tw3, "Away from", "Mon 19 Oct 2026", icon="calendar")
     field(s, x + tw3 + 24, y + 656, tw3, "Back on", "Fri 30 Oct 2026", icon="calendar")
-    field(s, x + 2 * (tw3 + 24), y + 656, tw3, "Acting approver", "Esther Namutebi", dropdown=True, icon="user",
+    field(s, x + 2 * (tw3 + 24), y + 656, tw3, "Acting approver", "Rebecca Achan · Department Head", dropdown=True, icon="user",
           focus=True)
-    s.text(x, y + 770, "While away, Daniel's step-1 approvals go to Esther. Both appear on the record.", 13, 500, MUTED)
+    s.text(x, y + 770, "While away, Daniel's step-1 approvals go to Rebecca Achan, another Department Head. Both appear on the record.", 13, 500, MUTED)
     rx, rw = X0 + lw + 20, CW - lw - 20
     s.rect(rx, y, rw, 440, fill=CARD, rx=16, stroke=LINE, name="what daniel can do")
     s.text(rx + 24, y + 40, "What this role can do", 17, 700, INK)
@@ -92,7 +88,7 @@ def w60b_edit_user():
     s.line(rx + 24, cy - 6, rx + rw - 24, cy - 6, LINE2)
     s.text(rx + 24, cy + 24, "MENUS", 10.5, 700, MUTED, spacing=0.8)
     mx, my = rx + 24, cy + 40
-    for lab in PERMS["Head of Department"]:
+    for lab in PERMS["Department Head"]:
         cw = tw(lab, 12, 600) + 22
         if mx + cw > rx + rw - 24:
             mx, my = rx + 24, my + 32
@@ -105,8 +101,8 @@ def w60b_edit_user():
 def w60c_add_user():
     """A new account, filled in by the System Admin: who they are, how to reach them, where they work, their role and a
     first password. The sign-in details can be emailed to them; they change the password at first sign-in."""
-    s = writes(w60_users("60c Add user"), ["System Admin"])
-    h = 840
+    s = writes(w60_users("60c Add user"), ["System Administrator"])
+    h = 780
     x, y = dialog(s, 800, h, "Add user", "They sign in at the same door as everyone else.", close_target="w60")
     w = 800 - 64
     hw = (w - 24) / 2
@@ -118,7 +114,7 @@ def w60c_add_user():
     field(s, x, y, hw, "Department", "PRG · Programmes", required=True, dropdown=True, icon="building")
     field(s, x + hw + 24, y, hw, "Office", "MAY · Mayuge field office", required=True, dropdown=True, icon="pin")
     y += 90
-    field(s, x, y, w, "Role", "Requester", required=True, dropdown=True, icon="shield",
+    field(s, x, y, w, "Role", "Requesting Officer", required=True, dropdown=True, icon="shield",
           hint="Decides the menus and the approval steps: Dashboard, Requisitions, Deliveries")
     y += 104
     field(s, x, y, w - 150, "Password", "••••••••••••", required=True, icon="lock",
@@ -129,10 +125,6 @@ def w60c_add_user():
     toggle(s, x + 14, y + 14, True)
     s.text(x + 62, y + 31, "Email the sign-in details to Sarah", 14, 700, INK)
     s.text(x + w - 16, y + 31, "s.achieng@idiu.org", 13, 500, MUTED, anchor="end")
-    y += 60
-    s.rect(x, y, w, 50, fill=FIELD_BG, rx=10)
-    toggle(s, x + 14, y + 14, False)
-    s.text(x + 62, y + 31, "Can be appointed to evaluation committees", 14, 600, INK)
     by = 1080 / 2 + h / 2 - 76
     s.line(x - 32, by - 14, x + w + 32, by - 14, LINE)
     s.icon("history", x, by + 12, 18, MUTED, 2)
@@ -144,44 +136,46 @@ def w60c_add_user():
 
 def w61_roles():
     s = console("61 Roles & permissions", "Roles & permissions", ["Administration", "Roles & permissions"], "ivan")
-    y = page_head(s, "Roles & permissions", "What each role can open and do. The sidebar each person sees comes from "
-                  "this matrix.", actions=[("Edit roles", "secondary", "edit", None)])
-    roles = [r[0] for r in ROLES if r[0] != "Evaluation Committee Member"]
-    short = {"Requester": "Requester", "Head of Department": "Head of dept", "Finance Officer": "Finance",
-             "Procurement Officer": "Procurement", "Country Director": "Country Dir.", "Stores / Inspection Officer": "Stores",
-             "System Admin": "Admin", "Auditor": "Auditor"}
+    y = page_head(s, "Roles & permissions", "One role per person, as in the proposal's role table. The sidebar each "
+                  "person sees comes from this matrix.", actions=[("Edit roles", "secondary", "edit", None)])
+    roles = [r[0] for r in ROLES]
+    short = {"Requesting Officer": "Requesting", "Department Head": "Dept head", "Finance Officer": "Finance",
+             "Procurement Officer": "Procurement", "Evaluation Committee Member": "Committee",
+             "Executive Approver": "Executive", "Inspection Officer": "Inspection", "System Administrator": "Admin",
+             "Auditor": "Auditor"}
     # ✓ do · ◐ see only · — none
     D, V, N = "do", "view", "none"
+    # columns: requesting · dept head · finance · procurement · committee · executive · inspection · admin · auditor
     rows = [
-        ("Raise requisitions", [D, D, D, D, D, D, N, N]),
-        ("Approve requisitions (by step)", [N, D, D, N, D, N, N, N]),
-        ("Prepare budgets and revisions", [N, N, D, N, N, N, N, N]),
-        ("Approve budgets and revisions", [N, N, N, N, D, N, N, N]),
-        ("See budgets and utilisation", [N, V, D, V, V, N, N, V]),
-        ("Review supplier applications", [N, N, N, D, N, N, N, V]),
-        ("Prequalify or suspend suppliers", [N, N, N, N, D, N, N, V]),
-        ("Send RFQs and compare quotations", [N, N, N, D, V, N, N, V]),
-        ("Score evaluations (when appointed)", [D, D, D, D, N, D, N, N]),
-        ("Approve awards and sign LPOs", [N, N, N, N, D, N, N, V]),
-        ("Record goods received", [N, N, N, N, N, D, N, V]),
-        ("Record invoices and payments", [N, N, D, N, N, N, N, V]),
-        ("Setup lists", [N, N, V, V, N, N, D, V]),
-        ("Users and roles", [N, N, N, N, N, N, D, V]),
-        ("Change approval workflows", [N, N, N, N, D, N, D, V]),
-        ("Audit trail", [N, N, N, N, V, N, V, V]),
+        ("Raise requisitions", [D, D, D, D, N, D, N, D, N]),
+        ("Approve requisitions (by step)", [N, D, D, N, N, D, N, N, N]),
+        ("Prepare budgets and revisions", [N, N, D, N, N, N, N, D, N]),
+        ("Approve budgets and revisions", [N, N, N, N, N, D, N, N, N]),
+        ("See budgets and utilisation", [N, V, D, V, N, V, N, V, V]),
+        ("Review supplier applications", [N, N, N, D, N, N, N, N, V]),
+        ("Prequalify or suspend suppliers", [N, N, N, N, N, D, N, N, V]),
+        ("Send RFQs and compare quotations", [N, N, N, D, N, V, N, N, V]),
+        ("Score the evaluations you are appointed to", [N, N, N, V, D, V, N, N, V]),
+        ("Approve awards and sign LPOs", [N, N, N, N, N, D, N, N, V]),
+        ("Record goods received", [N, N, N, N, N, N, D, N, V]),
+        ("Record invoices and payments", [N, N, D, N, N, N, N, N, V]),
+        ("Setup lists", [N, N, V, V, N, N, N, D, V]),
+        ("Users and roles", [N, N, N, N, N, N, N, D, V]),
+        ("Change approval workflows", [N, N, N, N, N, D, N, D, V]),
+        ("Audit trail", [N, N, N, N, N, V, N, V, V]),
     ]
-    s.rect(X0, y, CW, 1060 - y, fill=CARD, rx=16, stroke=LINE, name="matrix")
+    bottom = 990
+    s.rect(X0, y, CW, bottom - y, fill=CARD, rx=16, stroke=LINE, name="matrix")
     lab_w = 420
     colw = (CW - lab_w - 24) / len(roles)
     hy = y + 20
     for i, r in enumerate(roles):
         cx = X0 + lab_w + i * colw
         s.text(cx + colw / 2, hy + 22, short[r], 13, 700, INK, anchor="middle")
-        users = {"Requester": 14, "Head of Department": 6, "Finance Officer": 2, "Procurement Officer": 2,
-                 "Country Director": 1, "Stores / Inspection Officer": 2, "System Admin": 1, "Auditor": 1}[r]
+        users = {name: n for name, _, n in ROLES}[r]
         s.text(cx + colw / 2, hy + 40, f"{users} user{'s' if users != 1 else ''}", 11.5, 500, MUTED, anchor="middle")
     ry = hy + 58
-    rh = (1060 - 20 - 54 - ry) / len(rows)
+    rh = (bottom - 20 - 54 - ry) / len(rows)
     for j, (lab, vals) in enumerate(rows):
         if j % 2:
             s.rect(X0 + 1, ry, CW - 2, rh, fill=FIELD_BG)
@@ -196,7 +190,7 @@ def w61_roles():
             else:
                 s.text(cx, ry + rh / 2 + 5, "—", 13, 500, FAINT, anchor="middle")
         ry += rh
-    ly = 1060 - 30
+    ly = bottom - 30
     lx = X0 + 24
     s.circle(lx + 10, ly - 5, 9, fill=tint(BRAND_M, 0.16))
     s.icon("check", lx + 4, ly - 11, 12, BRAND_M, 3)
@@ -205,6 +199,9 @@ def w61_roles():
     lx += 22 + s.text(lx + 22, ly, "Can see", 12.5, 600, INK2) + 24
     s.text(lx, ly, "—  No access", 12.5, 600, INK2)
     s.text(X1 - 24, ly, "Nobody can approve what they prepared, whatever their role.", 12.5, 700, BRAND_D, anchor="end")
+    note(s, X0, bottom + 14, CW, "From the proposal's role table: committee members are appointed per procurement and "
+         "sign a declaration first; the Budget Holder's funds check is done by the Finance Officer, and the Procurement "
+         "Manager's oversight by the Executive Approver, until IDIU's procurement manual says otherwise.", icon="info")
     return s
 
 
@@ -262,9 +259,9 @@ def w62b_edit_workflow():
     lw = 1060
     s.rect(X0, y, lw, 620, fill=CARD, rx=16, stroke=LINE, name="steps editor")
     s.text(X0 + 24, y + 40, "Steps, in order", 17, 700, INK)
-    steps = [("Department review", "Head of Department", "Always", None),
+    steps = [("Department review", "Department Head", "Always", None),
              ("Funds check", "Finance Officer", "Always", None),
-             ("Executive approval", "Country Director", "25,000,000", "30,000,000")]
+             ("Executive approval", "Executive Approver", "25,000,000", "30,000,000")]
     sy = y + 64
     for i, (name, role, above, was) in enumerate(steps):
         changed = was is not None

@@ -112,7 +112,7 @@ def w10c_new_requisition():
     s.rect(rx, y + 270, rw, 330, fill=CARD, rx=16, stroke=LINE, name="approval path")
     s.text(rx + 24, y + 310, "Approval path", 17, 700, INK)
     s.text(rx + 24, y + 332, "Worked out from the value when you submit", 13, 400, MUTED)
-    steps = [("1  Department review", "Your Head of Department"), ("2  Funds check", "Finance Officer"),
+    steps = [("1  Department review", "Your Department Head"), ("2  Funds check", "Finance Officer"),
              ("3  Executive approval", "Country Director · only above UGX 30M")]
     sy = y + 372
     for i, (step, who) in enumerate(steps):
@@ -967,7 +967,7 @@ def w15b_grn():
         s.text(rx + rw - 24, ly, v, 14, 700, col, anchor="end")
     s.rect(rx, y + 350, rw, 210, fill=CARD, rx=16, stroke=LINE, name="inspection team")
     s.text(rx + 24, y + 390, "Inspection team", 17, 700, INK)
-    for i, (who, sub) in enumerate([("peter", "Stores & Inspection Officer · recording"), ("esther", "User department · Programmes")]):
+    for i, (who, sub) in enumerate([("peter", "Inspection Officer · recording"), ("harriet", "Requesting Officer · Programmes")]):
         name, ini, *_rest, col = PEOPLE[who]
         avatar(s, rx + 44, y + 432 + i * 58, 17, ini, col)
         s.text(rx + 70, y + 428 + i * 58, name, 14, 700, INK)

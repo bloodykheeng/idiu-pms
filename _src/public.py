@@ -18,21 +18,21 @@ from shell import (AUTH_RW, AUTH_RX, FOOT, H, PUB_TOP, QCW, QX0, QX1, W, auth, c
 # who signs in as what (PLAN.md §2 cast). Each lands on their own dashboard and stays signed in until they switch.
 # The demo accounts in the order the work flows: who sets things up, who starts a purchase, who approves it, who owns
 # it to the end, who receives it, who checks it afterwards. (person, role, their part)
-STAFF_SIGN_IN = [("ivan", "System Admin · sees all", "Sets up lists and users"),
+STAFF_SIGN_IN = [("ivan", "System Administrator", "Sets up lists and users"),
                  ("ruth", "Finance Officer", "Budgets, funds, payment"),
-                 ("grace", "Requester", "Raises the requisition"),
-                 ("daniel", "Head of Department", "Approves step 1"),
-                 ("samuel", "Country Director", "Final approvals"),
+                 ("grace", "Requesting Officer", "Raises the requisition"),
+                 ("daniel", "Department Head", "Approves step 1"),
+                 ("samuel", "Executive Approver", "Final approvals (CD)"),
                  ("joseph", "Procurement Officer", "Owns it: RFQ to LPO"),
-                 ("esther", "Requester · on committees", "Scores the quotations"),
-                 ("peter", "Stores / Inspection", "Receives the goods"),
+                 ("esther", "Evaluation Committee", "Scores when appointed"),
+                 ("peter", "Inspection Officer", "Receives the goods"),
                  ("agnes", "Auditor (read-only)", "Checks it all afterwards")]
 SUPPLIER_SIGN_IN = [("mpumudde", "Application pending", "Applies to prequalify"),
                     ("busoga", "Prequalified · ICT", "Quotes, delivers, gets paid")]
 
 STAGES_PUBLIC = [("Budget approved", "Finance · Country Director"),
                  ("Requisition raised", "Any IDIU staff member"),
-                 ("Approvals", "Head of Department · Finance · Country Director"),
+                 ("Approvals", "Department Head · Finance · Executive Approver"),
                  ("Request for quotations", "Procurement → prequalified suppliers"),
                  ("Evaluation", "Procurement or an appointed committee"),
                  ("LPO issued", "Finance · Country Director"),
@@ -112,7 +112,7 @@ def w80_home():
          "Register as a supplier", "w70"),
         ("users", "For IDIU staff", [("1", "Sign in with your IDIU email"),
                                      ("2", "See only what your role allows"),
-                                     ("3", "Accounts come from the System Admin: staff don't register")],
+                                     ("3", "Accounts come from the System Administrator")],
          "Sign in", "w00"),
     ]
     for i, (ic, title, steps, cta, tgt) in enumerate(cards):
@@ -374,7 +374,7 @@ def w00b_forgot_password():
     s.text(sx, 640, t1, 14, 500, MUTED)
     s.text(sx + w1, 640, t2, 14, 700, BRAND)
     s.link(sx + w1 - 8, 620, w2 + 16, 30, "w00")
-    note(s, rx, 690, rw, "IDIU staff without access to their email: ask the System Admin (ICT) to reset the account. "
+    note(s, rx, 690, rw, "IDIU staff without access to their email: ask the System Administrator (ICT) to reset the account. "
          "Suppliers: use the email you registered with.", icon="info")
     return s
 

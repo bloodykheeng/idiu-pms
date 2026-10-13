@@ -9,7 +9,7 @@ Patterns:  page_head, list toolbar + table + pager (the SDS list pattern), tabs,
 """
 from __future__ import annotations
 
-from data import PEOPLE, PERMS, SUPPLIER_ACCOUNTS, SUPPLIER_HOME, SUPPLIER_MENU, dashboard_key, menu_for, menu_target
+from data import PEOPLE, PERMS, ROLE_SHORT, SUPPLIER_ACCOUNTS, SUPPLIER_HOME, SUPPLIER_MENU, dashboard_key, menu_for, menu_target
 from kit import (AMBER, AMBER_D, BG, BRAND, BRAND_D, BRAND_M, CARD, FAINT, FIELD_BG, INK, INK2, LIME, LIME_D, LINE, LINE2, MUTED, RED,
                  SVG, avatar, button, checkbox, chip, icon_button, kbd, logo, ref, status_chip, textarea, tint, tw, wordmark, wrap)
 
@@ -198,7 +198,7 @@ def draw_sidebar(s: SVG, viewer, active):
             s.line(16, H - 78, SB - 16, H - 78, LINE)
             avatar(s, 44, H - 39, 19, ini, col, solid=True)
             s.text(72, H - 44, name, 14, 700, INK, maxw=SB - 130)
-            s.text(72, H - 25, role, 12, 500, MUTED, maxw=SB - 130)
+            s.text(72, H - 25, ROLE_SHORT.get(role, role), 12, 500, MUTED, maxw=SB - 130)
             s.rect(SB - 54, H - 58, 38, 38, fill=tint(RED, 0.1), rx=10, name="sign out", shadow=False)
             s.icon("logout", SB - 45, H - 49, 20, RED, 2)
         s.link(14, H - 66, SB - 82, 54, "w00")    # the name: sign in as someone else (demo)
