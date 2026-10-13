@@ -1,0 +1,443 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>50 Setup: Financial years</title>
+<defs><style>@font-face{font-family:'Figtree';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,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) format('woff2')}@font-face{font-family:'Figtree';font-weight:500;font-style:normal;src:url(data:font/woff2;base64,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) format('woff2')}@font-face{font-family:'Figtree';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,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) format('woff2')}@font-face{font-family:'Figtree';font-weight:700;font-style:normal;src:url(data:font/woff2;base64,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) format('woff2')}@font-face{font-family:'Bricolage Grotesque';font-weight:700;font-style:normal;src:url(data:font/woff2;base64,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) format('woff2')}</style><filter id="soft" x="-20%" y="-20%" width="140%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#102A1E" flood-opacity="0.06"/></filter></defs>
+<rect id="page-background" x="0.0" y="0.0" width="1920.0" height="1080.0" fill="#F3F6F2"/>
+<g id="sidebar">
+<rect id="sidebar-bg" x="0.0" y="0.0" width="276.0" height="1080.0" fill="#FFFFFE"/>
+<line x1="276.0" y1="0.0" x2="276.0" y2="1080.0" stroke="#E0E7E2" stroke-width="1"/>
+<image id="IDIU-logo" x="24.0" y="22.0" width="35.2" height="26.0" href="data:image/png;base64,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" preserveAspectRatio="xMidYMid meet"/>
+<text id="IDIU" x="69.2" y="42.9" font-family="'Bricolage Grotesque', 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#102A1E">IDIU</text>
+<text id="product" x="69.2" y="59.9" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="500" fill="#6B7D73">Procurement</text>
+<text id="nav-section-WORK" x="28.0" y="104.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#A3B2A9" letter-spacing="1.2">WORK</text>
+<g id="nav-Dashboard">
+<g id="icon-grid" transform="translate(30.0 128.0) scale(0.7917)">
+<path d="M4 3h6a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 3h6a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 12h6a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 16h6a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label" x="60.0" y="142.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Dashboard</text>
+</g>
+<g id="nav-My-approvals">
+<g id="icon-inbox" transform="translate(30.0 172.0) scale(0.7917)">
+<path d="M22 12h-6l-2 3h-4l-2-3H2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-2" x="60.0" y="186.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">My approvals</text>
+</g>
+<g id="nav-group-Procurement">
+<g id="icon-package" transform="translate(30.0 216.0) scale(0.7917)">
+<path d="M16.5 9.4L7.55 4.24" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.27 6.96L12 12.01l8.73-5.05" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 22.08V12" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-3" x="60.0" y="230.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Procurement</text>
+<g id="icon-chevdown" transform="translate(232.0 217.0) scale(0.6667)">
+<path d="M6 9l6 6 6-6" fill="none" stroke="#A3B2A9" stroke-width="3.00" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="nav-group-Suppliers">
+<g id="icon-building" transform="translate(30.0 260.0) scale(0.7917)">
+<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 6h4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 10h4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 14h4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 18h4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-4" x="60.0" y="274.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Suppliers</text>
+<g id="icon-chevdown-2" transform="translate(232.0 261.0) scale(0.6667)">
+<path d="M6 9l6 6 6-6" fill="none" stroke="#A3B2A9" stroke-width="3.00" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="nav-group-Budgets">
+<g id="icon-wallet" transform="translate(30.0 304.0) scale(0.7917)">
+<path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-5" x="60.0" y="318.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Budgets</text>
+<g id="icon-chevdown-3" transform="translate(232.0 305.0) scale(0.6667)">
+<path d="M6 9l6 6 6-6" fill="none" stroke="#A3B2A9" stroke-width="3.00" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="nav-group-Reports">
+<g id="icon-bars" transform="translate(30.0 348.0) scale(0.7917)">
+<path d="M3 3v18h18" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 17V9" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 17V5" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 17v-3" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-6" x="60.0" y="362.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Reports</text>
+<g id="icon-chevdown-4" transform="translate(232.0 349.0) scale(0.6667)">
+<path d="M6 9l6 6 6-6" fill="none" stroke="#A3B2A9" stroke-width="3.00" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<text id="nav-section-ADMINISTRATION" x="28.0" y="392.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#A3B2A9" letter-spacing="1.2">ADMINISTRATION</text>
+<g id="nav-group-Setup">
+<g id="icon-layers" transform="translate(30.0 416.0) scale(0.7917)">
+<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" fill="none" stroke="#1A683F" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22 17.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" fill="none" stroke="#1A683F" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" fill="none" stroke="#1A683F" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-7" x="60.0" y="430.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#102A1E">Setup</text>
+<g id="icon-chevup" transform="translate(232.0 417.0) scale(0.6667)">
+<path d="M18 15l-6-6-6 6" fill="none" stroke="#A3B2A9" stroke-width="3.00" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<line x1="41.0" y1="448.0" x2="41.0" y2="784.0" stroke="#E0E7E2" stroke-width="1"/>
+<g id="nav-Financial-years">
+<rect x="52.0" y="450.0" width="208.0" height="34.0" rx="9" fill="#EDF3F0"/>
+<circle cx="41.0" cy="467.0" r="3.5" fill="#1A683F"/>
+<text id="Financial-years" x="66.0" y="472.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#1A683F">Financial years</text>
+</g>
+<g id="nav-Departments">
+<circle cx="41.0" cy="505.0" r="2.5" fill="#B5C2BA"/>
+<text id="Departments" x="66.0" y="510.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Departments</text>
+</g>
+<g id="nav-Offices-cost-centres">
+<circle cx="41.0" cy="543.0" r="2.5" fill="#B5C2BA"/>
+<text id="Offices-cost-centres" x="66.0" y="548.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Offices &amp; cost centres</text>
+</g>
+<g id="nav-Donors">
+<circle cx="41.0" cy="581.0" r="2.5" fill="#B5C2BA"/>
+<text id="Donors" x="66.0" y="586.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Donors</text>
+</g>
+<g id="nav-Projects">
+<circle cx="41.0" cy="619.0" r="2.5" fill="#B5C2BA"/>
+<text id="Projects" x="66.0" y="624.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Projects</text>
+</g>
+<g id="nav-Account-codes">
+<circle cx="41.0" cy="657.0" r="2.5" fill="#B5C2BA"/>
+<text id="Account-codes" x="66.0" y="662.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Account codes</text>
+</g>
+<g id="nav-Procurement-categories">
+<circle cx="41.0" cy="695.0" r="2.5" fill="#B5C2BA"/>
+<text id="Procurement-categories" x="66.0" y="700.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Procurement categories</text>
+</g>
+<g id="nav-Supplier-document-types">
+<circle cx="41.0" cy="733.0" r="2.5" fill="#B5C2BA"/>
+<text id="Supplier-document-types" x="66.0" y="738.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Supplier document types</text>
+</g>
+<g id="nav-Units-of-measure">
+<circle cx="41.0" cy="771.0" r="2.5" fill="#B5C2BA"/>
+<text id="Units-of-measure" x="66.0" y="776.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">Units of measure</text>
+</g>
+<g id="nav-Users">
+<g id="icon-users" transform="translate(30.0 806.0) scale(0.7917)">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 3a4 4 0 1 0 0 8 4 4 0 1 0 0-8z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-8" x="60.0" y="820.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Users</text>
+</g>
+<g id="nav-Roles-permissions">
+<g id="icon-shield" transform="translate(30.0 850.0) scale(0.7917)">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 12l2 2 4-4" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-9" x="60.0" y="864.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Roles &amp; permissions</text>
+</g>
+<g id="nav-Approval-workflows">
+<g id="icon-workflow" transform="translate(30.0 894.0) scale(0.7917)">
+<path d="M4 3h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 15h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 9v4a2 2 0 0 0 2 2h6" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-10" x="60.0" y="908.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Approval workflows</text>
+</g>
+<g id="nav-Audit-trail">
+<g id="icon-history" transform="translate(30.0 938.0) scale(0.7917)">
+<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 3v5h5" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 7v5l4 2" fill="none" stroke="#7F8F86" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="label-11" x="60.0" y="952.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#3B5045">Audit trail</text>
+</g>
+<g id="signed-in-user">
+<rect x="0.0" y="1001.0" width="275.0" height="79.0" fill="#FFFFFE"/>
+<line x1="16.0" y1="1002.0" x2="260.0" y2="1002.0" stroke="#E0E7E2" stroke-width="1"/>
+<g id="avatar-IS">
+<circle cx="44.0" cy="1041.0" r="19.0" fill="#2F6FDB"/>
+<text id="IS" x="37.4" y="1047.8" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14.82" font-weight="700" fill="#FFFFFF">IS</text>
+</g>
+<text id="Ivan-Ssemanda" x="72.0" y="1036.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#102A1E">Ivan Ssemanda</text>
+<text id="System-Admin" x="72.0" y="1055.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="500" fill="#6B7D73">System Admin</text>
+<rect id="sign-out" x="222.0" y="1022.0" width="38.0" height="38.0" rx="10" fill="#FAECEC"/>
+<g id="icon-logout" transform="translate(231.0 1031.0) scale(0.8333)">
+<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" fill="none" stroke="#D1443C" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 17l5-5-5-5" fill="none" stroke="#D1443C" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 12H9" fill="none" stroke="#D1443C" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+<g id="top-bar">
+<rect id="top-bar-bg" x="276.0" y="0.0" width="1644.0" height="72.0" fill="#FFFFFE"/>
+<line x1="276.0" y1="72.0" x2="1920.0" y2="72.0" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-menu" transform="translate(312.0 24.0) scale(0.9167)">
+<path d="M4 6h16" fill="none" stroke="#3B5045" stroke-width="2.18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 12h16" fill="none" stroke="#3B5045" stroke-width="2.18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 18h16" fill="none" stroke="#3B5045" stroke-width="2.18" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="icon-home" transform="translate(354.0 27.0) scale(0.7500)">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="#6B7D73" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 22V12h6v10" fill="none" stroke="#6B7D73" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="icon-chevright" transform="translate(378.0 28.0) scale(0.6667)">
+<path d="M9 18l6-6-6-6" fill="none" stroke="#A3B2A9" stroke-width="2.70" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="crumb-Setup" x="400.0" y="41.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="500" fill="#6B7D73">Setup</text>
+<g id="icon-chevright-2" transform="translate(441.8 28.0) scale(0.6667)">
+<path d="M9 18l6-6-6-6" fill="none" stroke="#A3B2A9" stroke-width="2.70" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="crumb-Financial-years" x="463.8" y="41.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">Financial years</text>
+<line x1="1576.0" y1="20.0" x2="1576.0" y2="52.0" stroke="#E0E7E2" stroke-width="1"/>
+<g id="notifications">
+<g id="icon-bell" transform="translate(1530.0 25.0) scale(0.9167)">
+<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" fill="none" stroke="#3B5045" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" fill="none" stroke="#3B5045" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<circle cx="1549.0" cy="26.0" r="8.0" fill="#D1443C"/>
+<text id="3" x="1546.1" y="30.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">3</text>
+</g>
+<g id="theme-switch">
+<g id="icon-moon" transform="translate(1482.0 25.0) scale(0.8750)">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="#3B5045" stroke-width="2.17" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="demo-pill">
+<rect x="1300.9" y="22.0" width="157.1" height="28.0" rx="14" fill="#D9F0B8"/>
+<circle cx="1313.9" cy="36.0" r="4.0" fill="#2F5A0F"/>
+<text id="Demo-illustrative-data" x="1322.9" y="40.5" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="700" fill="#2F5A0F">Demo · illustrative data</text>
+</g>
+<g id="financial-year">
+<rect x="1189.1" y="18.0" width="95.7" height="36.0" rx="10" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<g id="icon-calendar" transform="translate(1200.1 27.0) scale(0.7083)">
+<path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="none" stroke="#1A683F" stroke-width="2.82" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 2v4" fill="none" stroke="#1A683F" stroke-width="2.82" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 2v4" fill="none" stroke="#1A683F" stroke-width="2.82" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3 10h18" fill="none" stroke="#1A683F" stroke-width="2.82" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="FY-2026" x="1223.1" y="41.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-weight="700" fill="#102A1E">FY 2026</text>
+</g>
+<g id="search">
+<rect x="875.1" y="18.0" width="300.0" height="36.0" rx="10" fill="#F7FAF8" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-search" transform="translate(887.1 27.0) scale(0.7500)">
+<path d="M11 3a8 8 0 1 0 0 16 8 8 0 1 0 0-16z" fill="none" stroke="#6B7D73" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 21l-4.3-4.3" fill="none" stroke="#6B7D73" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="Search-files-suppliers-LPO" x="915.1" y="41.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#A3B2A9">Search files, suppliers, LPOs…</text>
+<rect x="1117.1" y="26.0" width="30.9" height="20.0" rx="5" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<text id="Ctrl" x="1123.1" y="40.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="600" fill="#6B7D73">Ctrl</text>
+<rect x="1152.0" y="26.0" width="19.1" height="20.0" rx="5" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<text id="K" x="1158.0" y="40.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="600" fill="#6B7D73">K</text>
+</g>
+</g>
+<g id="signed-in-person">
+<rect id="identity-bg" x="1580.0" y="0.0" width="340.0" height="71.0" fill="#FFFFFE"/>
+<g id="avatar-IS-2">
+<circle cx="1860.0" cy="36.0" r="20.0" fill="#2F6FDB"/>
+<text id="IS-2" x="1853.1" y="43.2" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="15.600000000000001" font-weight="700" fill="#FFFFFF">IS</text>
+</g>
+<text id="Ivan-Ssemanda-2" x="1733.5" y="31.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#102A1E">Ivan Ssemanda</text>
+<text id="System-Admin-2" x="1751.1" y="49.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="500" fill="#6B7D73">System Admin</text>
+</g>
+<text id="page-title" x="316.0" y="136.0" font-family="'Bricolage Grotesque', 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700" fill="#102A1E">Financial years</text>
+<text id="page-subtitle" x="316.0" y="164.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#6B7D73">Budgets belong to a financial year. Only an open year takes new requisitions.</text>
+<g id="button-Import-from-Excel">
+<rect x="1707.6" y="108.0" width="172.4" height="42.0" rx="10" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<g id="icon-upload" transform="translate(1723.6 120.0) scale(0.7500)">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="#102A1E" stroke-width="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 8l-5-5-5 5" fill="none" stroke="#102A1E" stroke-width="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 3v12" fill="none" stroke="#102A1E" stroke-width="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="Import-from-Excel" x="1749.6" y="134.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">Import from Excel</text>
+</g>
+<rect id="list-card" x="316.0" y="180.0" width="1564.0" height="428.0" rx="16" fill="#FFFFFE" filter="url(#soft)"/>
+<g id="toolbar">
+<rect x="336.0" y="198.0" width="320.0" height="42.0" rx="10" fill="#FFFFFE" stroke="#CFD9D2" stroke-width="1"/>
+<g id="icon-search-2" transform="translate(350.0 210.0) scale(0.7500)">
+<path d="M11 3a8 8 0 1 0 0 16 8 8 0 1 0 0-16z" fill="none" stroke="#6B7D73" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 21l-4.3-4.3" fill="none" stroke="#6B7D73" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="Search-financial-years" x="376.0" y="224.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#A3B2A9">Search financial years…</text>
+<g id="icon-button-filter">
+<rect x="668.0" y="198.0" width="42.0" height="42.0" rx="10" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<g id="icon-filter" transform="translate(680.0 210.0) scale(0.7500)">
+<path d="M22 3H2l8 9.46V19l4 2v-8.54z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="icon-button-columns">
+<rect x="1818.0" y="198.0" width="42.0" height="42.0" rx="10" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<g id="icon-columns" transform="translate(1830.0 210.0) scale(0.7500)">
+<path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 3v18" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="icon-button-download">
+<rect x="1764.0" y="198.0" width="42.0" height="42.0" rx="10" fill="#FFFFFE" stroke="#D3DCD6" stroke-width="1"/>
+<g id="icon-download" transform="translate(1776.0 210.0) scale(0.7500)">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 10l5 5 5-5" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 15V3" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="button-New-financial-year">
+<rect x="1576.1" y="198.0" width="175.9" height="42.0" rx="10" fill="#1A683F"/>
+<g id="icon-plus" transform="translate(1592.1 210.0) scale(0.7500)">
+<path d="M12 5v14" fill="none" stroke="#FFFFFF" stroke-width="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5 12h14" fill="none" stroke="#FFFFFF" stroke-width="2.67" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="New-financial-year" x="1618.1" y="224.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">New financial year</text>
+</g>
+</g>
+<g id="table">
+<rect id="header-bg" x="316.0" y="258.0" width="1564.0" height="44.0" fill="#F7FAF8"/>
+<line x1="316.0" y1="258.0" x2="1880.0" y2="258.0" stroke="#EDF2EE" stroke-width="1"/>
+<line x1="316.0" y1="302.0" x2="1880.0" y2="302.0" stroke="#EDF2EE" stroke-width="1"/>
+<g id="checkbox">
+<rect x="338.0" y="271.0" width="18.0" height="18.0" rx="5" fill="#FFFFFE" stroke="#C2CEC6" stroke-width="1.5"/>
+</g>
+<text id="FINANCIAL-YEAR" x="384.0" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">FINANCIAL YEAR</text>
+<text id="STARTS" x="684.0" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">STARTS</text>
+<g id="icon-swap" transform="translate(734.5 273.0) scale(0.5417)">
+<path d="M16 3l4 4-4 4" fill="none" stroke="#A3B2A9" stroke-width="3.69" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 7H4" fill="none" stroke="#A3B2A9" stroke-width="3.69" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 21l-4-4 4-4" fill="none" stroke="#A3B2A9" stroke-width="3.69" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 17h16" fill="none" stroke="#A3B2A9" stroke-width="3.69" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="ENDS" x="944.0" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">ENDS</text>
+<text id="BUDGETS" x="1297.2" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">BUDGETS</text>
+<text id="STATUS" x="1384.0" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">STATUS</text>
+<text id="ACTIONS" x="1664.0" y="284.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" font-weight="700" fill="#6B7D73" letter-spacing="0.7">ACTIONS</text>
+<g id="row-1">
+<g id="checkbox-2">
+<rect x="338.0" y="324.0" width="18.0" height="18.0" rx="5" fill="#FFFFFE" stroke="#C2CEC6" stroke-width="1.5"/>
+</g>
+<text id="FY-2027" x="384.0" y="338.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#102A1E">FY 2027</text>
+<text id="1-Jan-2027" x="684.0" y="338.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">1 Jan 2027</text>
+<text id="31-Dec-2027" x="944.0" y="338.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">31 Dec 2027</text>
+<text id="0" x="1343.0" y="330.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">0</text>
+<text id="budgets" x="1307.5" y="348.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="400" fill="#6B7D73">budgets</text>
+<g id="chip-Planning">
+<rect x="1382.0" y="321.0" width="80.7" height="24.0" rx="12.0" fill="#E6EEFB"/>
+<circle cx="1396.0" cy="333.0" r="3.5" fill="#2F6FDB"/>
+<text id="Planning" x="1406.0" y="337.3" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="600" fill="#285EBA">Planning</text>
+</g>
+<rect x="1662.0" y="316.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-edit" transform="translate(1670.0 324.0) scale(0.7500)">
+<path d="M12 20h9" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<rect x="1704.0" y="316.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-eye" transform="translate(1712.0 324.0) scale(0.7500)">
+<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<line x1="316.0" y1="364.0" x2="1880.0" y2="364.0" stroke="#EDF2EE" stroke-width="1"/>
+</g>
+<g id="row-2">
+<rect x="316.0" y="364.0" width="1564.0" height="62.0" fill="#EEF8DF"/>
+<rect x="316.0" y="364.0" width="3.0" height="62.0" fill="#1A683F"/>
+<g id="checkbox-3">
+<rect x="338.0" y="386.0" width="18.0" height="18.0" rx="5" fill="#FFFFFE" stroke="#C2CEC6" stroke-width="1.5"/>
+</g>
+<text id="FY-2026-2" x="384.0" y="400.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#102A1E">FY 2026</text>
+<text id="1-Jan-2026" x="684.0" y="400.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">1 Jan 2026</text>
+<text id="31-Dec-2026" x="944.0" y="400.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">31 Dec 2026</text>
+<text id="6" x="1344.0" y="392.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">6</text>
+<text id="budgets-2" x="1307.5" y="410.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="400" fill="#6B7D73">budgets</text>
+<g id="chip-Open">
+<rect x="1382.0" y="383.0" width="63.9" height="24.0" rx="12.0" fill="#E6F0EB"/>
+<circle cx="1396.0" cy="395.0" r="3.5" fill="#2B8455"/>
+<text id="Open" x="1406.0" y="399.3" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="600" fill="#257048">Open</text>
+</g>
+<rect x="1662.0" y="378.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-edit-2" transform="translate(1670.0 386.0) scale(0.7500)">
+<path d="M12 20h9" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<rect x="1704.0" y="378.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-lock" transform="translate(1712.0 386.0) scale(0.7500)">
+<path d="M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<line x1="316.0" y1="426.0" x2="1880.0" y2="426.0" stroke="#EDF2EE" stroke-width="1"/>
+</g>
+<g id="row-3">
+<g id="checkbox-4">
+<rect x="338.0" y="448.0" width="18.0" height="18.0" rx="5" fill="#FFFFFE" stroke="#C2CEC6" stroke-width="1.5"/>
+</g>
+<text id="FY-2025" x="384.0" y="462.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#102A1E">FY 2025</text>
+<text id="1-Jan-2025" x="684.0" y="462.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">1 Jan 2025</text>
+<text id="31-Dec-2025" x="944.0" y="462.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">31 Dec 2025</text>
+<text id="5" x="1343.9" y="454.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">5</text>
+<text id="budgets-3" x="1307.5" y="472.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="400" fill="#6B7D73">budgets</text>
+<g id="chip-Closed">
+<rect x="1382.0" y="445.0" width="71.8" height="24.0" rx="12.0" fill="#E7EAE9"/>
+<circle cx="1396.0" cy="457.0" r="3.5" fill="#3B5045"/>
+<text id="Closed" x="1406.0" y="461.3" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="600" fill="#32443B">Closed</text>
+</g>
+<rect x="1662.0" y="440.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-edit-3" transform="translate(1670.0 448.0) scale(0.7500)">
+<path d="M12 20h9" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<rect x="1704.0" y="440.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-eye-2" transform="translate(1712.0 448.0) scale(0.7500)">
+<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<line x1="316.0" y1="488.0" x2="1880.0" y2="488.0" stroke="#EDF2EE" stroke-width="1"/>
+</g>
+<g id="row-4">
+<g id="checkbox-5">
+<rect x="338.0" y="510.0" width="18.0" height="18.0" rx="5" fill="#FFFFFE" stroke="#C2CEC6" stroke-width="1.5"/>
+</g>
+<text id="FY-2024" x="384.0" y="524.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#102A1E">FY 2024</text>
+<text id="1-Jan-2024" x="684.0" y="524.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">1 Jan 2024</text>
+<text id="31-Dec-2024" x="944.0" y="524.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#102A1E">31 Dec 2024</text>
+<text id="4" x="1343.2" y="516.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" font-weight="600" fill="#102A1E">4</text>
+<text id="budgets-4" x="1307.5" y="534.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="400" fill="#6B7D73">budgets</text>
+<g id="chip-Closed-2">
+<rect x="1382.0" y="507.0" width="71.8" height="24.0" rx="12.0" fill="#E7EAE9"/>
+<circle cx="1396.0" cy="519.0" r="3.5" fill="#3B5045"/>
+<text id="Closed-2" x="1406.0" y="523.3" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" font-weight="600" fill="#32443B">Closed</text>
+</g>
+<rect x="1662.0" y="502.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-edit-4" transform="translate(1670.0 510.0) scale(0.7500)">
+<path d="M12 20h9" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<rect x="1704.0" y="502.0" width="34.0" height="34.0" rx="9" fill="#FFFFFE" stroke="#E0E7E2" stroke-width="1"/>
+<g id="icon-eye-3" transform="translate(1712.0 510.0) scale(0.7500)">
+<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" fill="none" stroke="#3B5045" stroke-width="2.53" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<line x1="316.0" y1="550.0" x2="1880.0" y2="550.0" stroke="#EDF2EE" stroke-width="1"/>
+</g>
+</g>
+<g id="pager">
+<text id="Showing-1-to-4-of-4" x="336.0" y="580.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-weight="500" fill="#6B7D73">Showing 1 to 4 of 4</text>
+<rect x="1768.0" y="560.0" width="92.0" height="36.0" rx="10" fill="#FFFFFE" stroke="#CFD9D2" stroke-width="1"/>
+<text id="10-page" x="1782.0" y="583.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-weight="600" fill="#102A1E">10 / page</text>
+<g id="icon-chevdown-5" transform="translate(1836.0 570.0) scale(0.6250)">
+<path d="M6 9l6 6 6-6" fill="none" stroke="#6B7D73" stroke-width="2.88" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text id="layer" x="1649.5" y="583.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">‹</text>
+<rect x="1674.0" y="560.0" width="36.0" height="36.0" rx="10" fill="#1A683F"/>
+<text id="1" x="1689.2" y="583.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#FFFFFF">1</text>
+<text id="layer-2" x="1729.5" y="583.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#3B5045">›</text>
+</g>
+<rect id="note" x="316.0" y="628.0" width="1564.0" height="44.0" rx="12" fill="#EDF3F0"/>
+<g id="icon-info" transform="translate(332.0 641.0) scale(0.7500)">
+<path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z" fill="none" stroke="#1A683F" stroke-width="2.80" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 16v-4" fill="none" stroke="#1A683F" stroke-width="2.80" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 8h.01" fill="none" stroke="#1A683F" stroke-width="2.80" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="para-Closing-FY-2026-will">
+<text id="line" x="360.0" y="655.0" font-family="'Figtree', 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-weight="500" fill="#3B5045">Closing FY 2026 will lock its budgets: open requisitions must be finished or moved to FY 2027 first. Closing a year needs the Country Director's approval.</text>
+</g>
+</svg>
